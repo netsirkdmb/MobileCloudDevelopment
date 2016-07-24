@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC0C1CEF1D43264D00F19698 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C1CEE1D43264D00F19698 /* AppDelegate.swift */; };
+		AC0C1CF11D43264D00F19698 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C1CF01D43264D00F19698 /* SchoolViewController.swift */; };
+		AC0C1CF31D43264D00F19698 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C1CF21D43264D00F19698 /* StudentViewController.swift */; };
+		AC0C1CF61D43264D00F19698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0C1CF41D43264D00F19698 /* Main.storyboard */; };
+		AC0C1CF81D43264D00F19698 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC0C1CF71D43264D00F19698 /* Assets.xcassets */; };
+		AC0C1CFB1D43264D00F19698 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0C1CF91D43264D00F19698 /* LaunchScreen.storyboard */; };
+		AC0C1D061D43264D00F19698 /* SchoolFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C1D051D43264D00F19698 /* SchoolFinderTests.swift */; };
+		AC0C1D111D4338C700F19698 /* SchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C1D101D4338C700F19698 /* SchoolTableViewCell.swift */; };
+		AC0C1D131D43390C00F19698 /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C1D121D43390C00F19698 /* StudentTableViewCell.swift */; };
+		AC0C1D151D43391B00F19698 /* ParentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C1D141D43391B00F19698 /* ParentTableViewCell.swift */; };
+		ACC2195E1D43431D006A6BFA /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2195D1D43431D006A6BFA /* RatingControl.swift */; };
+		ACC219601D4343AF006A6BFA /* TypeOfSchoolControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2195F1D4343AF006A6BFA /* TypeOfSchoolControl.swift */; };
+		ACC219621D4426E8006A6BFA /* ForeignLanguagesTaughtControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219611D4426E8006A6BFA /* ForeignLanguagesTaughtControl.swift */; };
+		ACC219641D442722006A6BFA /* GradeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219631D442722006A6BFA /* GradeControl.swift */; };
+		ACC219661D4428DC006A6BFA /* CurrentSchoolControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219651D4428DC006A6BFA /* CurrentSchoolControl.swift */; };
+		ACC219681D4428F0006A6BFA /* PastSchoolsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219671D4428F0006A6BFA /* PastSchoolsControl.swift */; };
+		ACC2196A1D442906006A6BFA /* ParentsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219691D442906006A6BFA /* ParentsControl.swift */; };
+		ACC2196C1D442916006A6BFA /* StudentsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2196B1D442916006A6BFA /* StudentsControl.swift */; };
+		ACC2196E1D442DE7006A6BFA /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2196D1D442DE7006A6BFA /* ParentViewController.swift */; };
+		ACC219701D446747006A6BFA /* SchoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2196F1D446747006A6BFA /* SchoolTableViewController.swift */; };
+		ACC219721D446758006A6BFA /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219711D446758006A6BFA /* StudentTableViewController.swift */; };
+		ACC219741D446768006A6BFA /* ParentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219731D446768006A6BFA /* ParentTableViewController.swift */; };
+		ACC219761D446D45006A6BFA /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219751D446D45006A6BFA /* School.swift */; };
+		ACC219791D4473DA006A6BFA /* Parent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219771D4473DA006A6BFA /* Parent.swift */; };
+		ACC2197A1D4473DA006A6BFA /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC219781D4473DA006A6BFA /* Student.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC0C1D021D43264D00F19698 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC0C1CE31D43264D00F19698 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC0C1CEA1D43264D00F19698;
+			remoteInfo = SchoolFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC0C1CEB1D43264D00F19698 /* SchoolFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0C1CEE1D43264D00F19698 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC0C1CF01D43264D00F19698 /* SchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
+		AC0C1CF21D43264D00F19698 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
+		AC0C1CF51D43264D00F19698 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC0C1CF71D43264D00F19698 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC0C1CFA1D43264D00F19698 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC0C1CFC1D43264D00F19698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC0C1D011D43264D00F19698 /* SchoolFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchoolFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0C1D051D43264D00F19698 /* SchoolFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolFinderTests.swift; sourceTree = "<group>"; };
+		AC0C1D071D43264D00F19698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC0C1D101D4338C700F19698 /* SchoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolTableViewCell.swift; sourceTree = "<group>"; };
+		AC0C1D121D43390C00F19698 /* StudentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
+		AC0C1D141D43391B00F19698 /* ParentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTableViewCell.swift; sourceTree = "<group>"; };
+		ACC2195D1D43431D006A6BFA /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		ACC2195F1D4343AF006A6BFA /* TypeOfSchoolControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeOfSchoolControl.swift; sourceTree = "<group>"; };
+		ACC219611D4426E8006A6BFA /* ForeignLanguagesTaughtControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForeignLanguagesTaughtControl.swift; sourceTree = "<group>"; };
+		ACC219631D442722006A6BFA /* GradeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeControl.swift; sourceTree = "<group>"; };
+		ACC219651D4428DC006A6BFA /* CurrentSchoolControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSchoolControl.swift; sourceTree = "<group>"; };
+		ACC219671D4428F0006A6BFA /* PastSchoolsControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastSchoolsControl.swift; sourceTree = "<group>"; };
+		ACC219691D442906006A6BFA /* ParentsControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentsControl.swift; sourceTree = "<group>"; };
+		ACC2196B1D442916006A6BFA /* StudentsControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsControl.swift; sourceTree = "<group>"; };
+		ACC2196D1D442DE7006A6BFA /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		ACC2196F1D446747006A6BFA /* SchoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolTableViewController.swift; sourceTree = "<group>"; };
+		ACC219711D446758006A6BFA /* StudentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
+		ACC219731D446768006A6BFA /* ParentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTableViewController.swift; sourceTree = "<group>"; };
+		ACC219751D446D45006A6BFA /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		ACC219771D4473DA006A6BFA /* Parent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parent.swift; sourceTree = "<group>"; };
+		ACC219781D4473DA006A6BFA /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC0C1CE81D43264D00F19698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC0C1CFE1D43264D00F19698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC0C1CE21D43264D00F19698 = {
+			isa = PBXGroup;
+			children = (
+				AC0C1CED1D43264D00F19698 /* SchoolFinder */,
+				AC0C1D041D43264D00F19698 /* SchoolFinderTests */,
+				AC0C1CEC1D43264D00F19698 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC0C1CEC1D43264D00F19698 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC0C1CEB1D43264D00F19698 /* SchoolFinder.app */,
+				AC0C1D011D43264D00F19698 /* SchoolFinderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC0C1CED1D43264D00F19698 /* SchoolFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC0C1CEE1D43264D00F19698 /* AppDelegate.swift */,
+				AC0C1CF41D43264D00F19698 /* Main.storyboard */,
+				ACC219751D446D45006A6BFA /* School.swift */,
+				AC0C1CF01D43264D00F19698 /* SchoolViewController.swift */,
+				ACC2196F1D446747006A6BFA /* SchoolTableViewController.swift */,
+				AC0C1D101D4338C700F19698 /* SchoolTableViewCell.swift */,
+				ACC2195F1D4343AF006A6BFA /* TypeOfSchoolControl.swift */,
+				ACC219611D4426E8006A6BFA /* ForeignLanguagesTaughtControl.swift */,
+				ACC2195D1D43431D006A6BFA /* RatingControl.swift */,
+				ACC219781D4473DA006A6BFA /* Student.swift */,
+				AC0C1CF21D43264D00F19698 /* StudentViewController.swift */,
+				ACC219711D446758006A6BFA /* StudentTableViewController.swift */,
+				AC0C1D121D43390C00F19698 /* StudentTableViewCell.swift */,
+				ACC219631D442722006A6BFA /* GradeControl.swift */,
+				ACC219651D4428DC006A6BFA /* CurrentSchoolControl.swift */,
+				ACC219671D4428F0006A6BFA /* PastSchoolsControl.swift */,
+				ACC219691D442906006A6BFA /* ParentsControl.swift */,
+				ACC219771D4473DA006A6BFA /* Parent.swift */,
+				ACC2196D1D442DE7006A6BFA /* ParentViewController.swift */,
+				ACC219731D446768006A6BFA /* ParentTableViewController.swift */,
+				AC0C1D141D43391B00F19698 /* ParentTableViewCell.swift */,
+				ACC2196B1D442916006A6BFA /* StudentsControl.swift */,
+				AC0C1CF71D43264D00F19698 /* Assets.xcassets */,
+				AC0C1CF91D43264D00F19698 /* LaunchScreen.storyboard */,
+				AC0C1CFC1D43264D00F19698 /* Info.plist */,
+			);
+			path = SchoolFinder;
+			sourceTree = "<group>";
+		};
+		AC0C1D041D43264D00F19698 /* SchoolFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC0C1D051D43264D00F19698 /* SchoolFinderTests.swift */,
+				AC0C1D071D43264D00F19698 /* Info.plist */,
+			);
+			path = SchoolFinderTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC0C1CEA1D43264D00F19698 /* SchoolFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC0C1D0A1D43264D00F19698 /* Build configuration list for PBXNativeTarget "SchoolFinder" */;
+			buildPhases = (
+				AC0C1CE71D43264D00F19698 /* Sources */,
+				AC0C1CE81D43264D00F19698 /* Frameworks */,
+				AC0C1CE91D43264D00F19698 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SchoolFinder;
+			productName = SchoolFinder;
+			productReference = AC0C1CEB1D43264D00F19698 /* SchoolFinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC0C1D001D43264D00F19698 /* SchoolFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC0C1D0D1D43264D00F19698 /* Build configuration list for PBXNativeTarget "SchoolFinderTests" */;
+			buildPhases = (
+				AC0C1CFD1D43264D00F19698 /* Sources */,
+				AC0C1CFE1D43264D00F19698 /* Frameworks */,
+				AC0C1CFF1D43264D00F19698 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC0C1D031D43264D00F19698 /* PBXTargetDependency */,
+			);
+			name = SchoolFinderTests;
+			productName = SchoolFinderTests;
+			productReference = AC0C1D011D43264D00F19698 /* SchoolFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC0C1CE31D43264D00F19698 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = OSU;
+				TargetAttributes = {
+					AC0C1CEA1D43264D00F19698 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8H7ZG6L9U6;
+					};
+					AC0C1D001D43264D00F19698 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = AC0C1CEA1D43264D00F19698;
+					};
+				};
+			};
+			buildConfigurationList = AC0C1CE61D43264D00F19698 /* Build configuration list for PBXProject "SchoolFinder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC0C1CE21D43264D00F19698;
+			productRefGroup = AC0C1CEC1D43264D00F19698 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC0C1CEA1D43264D00F19698 /* SchoolFinder */,
+				AC0C1D001D43264D00F19698 /* SchoolFinderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC0C1CE91D43264D00F19698 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC0C1CFB1D43264D00F19698 /* LaunchScreen.storyboard in Resources */,
+				AC0C1CF81D43264D00F19698 /* Assets.xcassets in Resources */,
+				AC0C1CF61D43264D00F19698 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC0C1CFF1D43264D00F19698 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC0C1CE71D43264D00F19698 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC219761D446D45006A6BFA /* School.swift in Sources */,
+				ACC2195E1D43431D006A6BFA /* RatingControl.swift in Sources */,
+				ACC219641D442722006A6BFA /* GradeControl.swift in Sources */,
+				AC0C1CF31D43264D00F19698 /* StudentViewController.swift in Sources */,
+				ACC2196C1D442916006A6BFA /* StudentsControl.swift in Sources */,
+				AC0C1D131D43390C00F19698 /* StudentTableViewCell.swift in Sources */,
+				AC0C1CEF1D43264D00F19698 /* AppDelegate.swift in Sources */,
+				ACC219721D446758006A6BFA /* StudentTableViewController.swift in Sources */,
+				ACC219601D4343AF006A6BFA /* TypeOfSchoolControl.swift in Sources */,
+				ACC219791D4473DA006A6BFA /* Parent.swift in Sources */,
+				ACC219661D4428DC006A6BFA /* CurrentSchoolControl.swift in Sources */,
+				ACC219681D4428F0006A6BFA /* PastSchoolsControl.swift in Sources */,
+				ACC219701D446747006A6BFA /* SchoolTableViewController.swift in Sources */,
+				AC0C1CF11D43264D00F19698 /* SchoolViewController.swift in Sources */,
+				ACC219621D4426E8006A6BFA /* ForeignLanguagesTaughtControl.swift in Sources */,
+				ACC2196E1D442DE7006A6BFA /* ParentViewController.swift in Sources */,
+				AC0C1D111D4338C700F19698 /* SchoolTableViewCell.swift in Sources */,
+				ACC219741D446768006A6BFA /* ParentTableViewController.swift in Sources */,
+				ACC2196A1D442906006A6BFA /* ParentsControl.swift in Sources */,
+				ACC2197A1D4473DA006A6BFA /* Student.swift in Sources */,
+				AC0C1D151D43391B00F19698 /* ParentTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC0C1CFD1D43264D00F19698 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC0C1D061D43264D00F19698 /* SchoolFinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC0C1D031D43264D00F19698 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC0C1CEA1D43264D00F19698 /* SchoolFinder */;
+			targetProxy = AC0C1D021D43264D00F19698 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC0C1CF41D43264D00F19698 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC0C1CF51D43264D00F19698 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC0C1CF91D43264D00F19698 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC0C1CFA1D43264D00F19698 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC0C1D081D43264D00F19698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC0C1D091D43264D00F19698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC0C1D0B1D43264D00F19698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SchoolFinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KristenDhuse.SchoolFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		AC0C1D0C1D43264D00F19698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SchoolFinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KristenDhuse.SchoolFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		AC0C1D0E1D43264D00F19698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SchoolFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KristenDhuse.SchoolFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchoolFinder.app/SchoolFinder";
+			};
+			name = Debug;
+		};
+		AC0C1D0F1D43264D00F19698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SchoolFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KristenDhuse.SchoolFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchoolFinder.app/SchoolFinder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC0C1CE61D43264D00F19698 /* Build configuration list for PBXProject "SchoolFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC0C1D081D43264D00F19698 /* Debug */,
+				AC0C1D091D43264D00F19698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC0C1D0A1D43264D00F19698 /* Build configuration list for PBXNativeTarget "SchoolFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC0C1D0B1D43264D00F19698 /* Debug */,
+				AC0C1D0C1D43264D00F19698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC0C1D0D1D43264D00F19698 /* Build configuration list for PBXNativeTarget "SchoolFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC0C1D0E1D43264D00F19698 /* Debug */,
+				AC0C1D0F1D43264D00F19698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC0C1CE31D43264D00F19698 /* Project object */;
+}
