@@ -1,0 +1,10 @@
+.center-image {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+.center-image-no-border {
+    margin-left: auto;
+    margin-right: auto;
+}

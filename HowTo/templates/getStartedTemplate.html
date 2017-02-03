@@ -1,0 +1,79 @@
+{# Kristen Dhuse #}
+{# CS496 - How To Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{% set title = "Get Started" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+    {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <p>
+        To make use of the TNSwiftyCheckboxGroup library, you need to have an object that has a variable that is a list and a form that 
+        requires multiple selection to set the values of the list in the variable.  My app allows the user to enter schools where a school 
+        can have multiple types and offer multiple foreign languages.  Here are the variables in my School object where you can see that 
+        "typeOfSchool" and "foreignLanguagesTaught" are lists.  In this guide, we will focus on the "typeOfSchool" input on the form since 
+        the methods are the same for the "foreignLanguagesTaught" input.
+    </p>
+    <img src={{ url_for('static', filename = 'schoolObject.jpg') }} alt="School Object" class="img-responsive center-image">
+    <br>
+    <p>
+        You will also need to have a form for inputting values to your object.  My form for inputting a new school or editing an existing 
+        school is shown below.  You will notice that instead of including checkboxes for the type of school and the foreign languages, I am 
+        using buttons that will take the user to another view where they can make their selections.  This is because the TNSwiftyCheckboxGroup 
+        is made to work in its own view.
+    </p>
+    <img src={{ url_for('static', filename = 'schoolForm.jpg') }} alt="School Form" class="img-responsive center-image">
+    <br>
+    <p>        
+        In the view controller document for your form (mine is called SchoolViewController.swift), you will need to connect the buttons that 
+        you made for going to the checkbox views to an outlet by using the assistant editor to CTRL-drag each of the buttons to the properties 
+        section of your view controller document and give the outlet variables a name.  I called mine typeOfSchoolButton and foreignLanguagesTaughtButton.  
+    </p>
+    <img src={{ url_for('static', filename = 'buttonVariables.jpg') }} alt="Button Variables" class="img-responsive center-image">
+    <br>
+    <p>
+        In order to make the buttons accessible in the view controllers for the checkboxes, you need to also make global variables for the buttons.  
+        As you can see in the image above, I have accomplished this by adding the following code above the name of the class.
+    </p>
+    <pre>
+    var globalTypeOfSchoolButton: UIButton = UIButton()
+    var globalForeignLanguagesTaughtButton: UIButton = UIButton()</pre>
+    <p>
+        The final step for making the buttons accessible in other view controllers is to assign the button outlet variables to the global variables.  
+        This is done by adding the following code to the viewDidLoad() function as shown at the bottom of the image above.
+    </p>
+    <pre>
+    globalTypeOfSchoolButton = typeOfSchoolButton
+    globalForeignLanguagesTaughtButton = foreignLanguagesTaughtButton</pre>
+    <br>
+    <h4>Now you are ready to start writing the code for the view controller that you are going to use for the checkboxes.</h4>
+    <br>
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="{{ url_for('installTNSwifty') }}" class="btn btn-default" role="button">Previous</a>
+        <a href="{{ url_for('checkboxViewController') }}" class="btn btn-default" role="button">Next</a>
+    </div>
+    <br>
+{% endblock %}

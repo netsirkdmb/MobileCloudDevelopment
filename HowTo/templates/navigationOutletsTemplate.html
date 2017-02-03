@@ -1,0 +1,173 @@
+{# Kristen Dhuse #}
+{# CS496 - How To Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{% set title = "Navigation and Outlets" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+    {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <p>
+        Let's start out by adding an outlet to the "Done" button on the Type Of School View Controller.  Using the Assistant Editor, put the Main.storyboard 
+        in the left side and if you select the Type of School View Controller in the Main.storyboard, the TypeOfSchoolViewController.swift file should show 
+        up automatically on the right side.  Now, CTRL-drag from the "Done" button in the storyboard to the line below the "IBOutlets" label in the swift 
+        file.  Give the outlet a name in the dialog box that appears.  Mine is called "doneButton".
+    </p>
+    <p>
+        Next, remove the comment marks surrounding the "MARK: - Navigation" and the prepareForSegue function.  The prepareForSegue function is used when navigating  
+        to and from the current view to set up variables and get/send data.  If doneButton sends us to this function, then we need to capture the checkboxes that 
+        have been checked and save them in a way that they can be used by the destination view controller.  In this case, I want to change the text on the button 
+        in the school form that we used to navigate to the checkboxes.  I want the text on the button to now be a comma separated list of the options that the user 
+        checked.  In order to do this, I must first save an array of the checkboxModels that have been checked using the "checkedModels" property of the view controller.  
+        Then, I must iterate through this array and append the value of the name key in each checkboxModel to an array of strings.  Finally, I need to join the array 
+        of strings using the joinWithSeparator(", ") function so that the array of strings will become one long comma-separated string.  This is the first part of 
+        the prepareForSegue function that is shown below.
+    </p>
+    <pre>
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if doneButton === sender {
+             let typeOfSchoolCheckboxModelArray: [TNSwiftyCheckboxModel] = checkboxVC.checkedModels!
+             var typeOfSchoolStringArray: [String] = [String]()
+             for typeOfSchoolCheckboxModel in typeOfSchoolCheckboxModelArray {
+                typeOfSchoolStringArray.append(typeOfSchoolCheckboxModel.name)
+             }
+             typeOfSchoolString = typeOfSchoolStringArray.joinWithSeparator(", ")
+        }
+    }</pre>
+    <br>
+    <p>        
+        Now, we need to take care of the case where we are navigating to the checkbox view.  In this case, doneButton is not the sender and we need to set up 
+        the checkboxes either with none checked (if we are adding a new school), or with some checked (if we are editing a school).  Luckily, we can do this with 
+        the same code.  This is where our global variables for the buttons are used.  Since we set the title of the button to the names of the checkboxes that 
+        have been checked when we save a school, we need to use the global variable to get the current title from the button.  Then, we convert the string to an array 
+        of strings with the componentsSeparatedByString(", ") function.  Now, we can make an array of TNSwiftyCheckboxModels where the name value of each object is 
+        a type of school (like "Daycare") and the value of checked is the boolean of whether or not the array of strings contains that name value.  This works for 
+        both when a school is being added for the first time and when a school is being edited.  This is because when a school is being added the title of the 
+        button is "Choose Type(s) of School", which doesn't match the names of any of the checkboxes so they will all be set up as unchecked.  When a school is 
+        being edited, the title of the button is a comma-separated string of all of the types of schools that were previously selected so the checkbox names that 
+        match will be true and therefore, they will be checked.  The final lines of code in this section are to set up the properties of the destination view 
+        controller.  First, it must be cast as a TNSwiftyCheckboxViewController.  Then, the type of checkboxes must be set.  The TNSwiftyCheckboxGroup offers 
+        three predefined types of checkboxes.  I used image checkboxes for my project, but there are also square (filled squares that have a smaller white square 
+        inside when they are checked) and circle (filled circles that have a smaller white circle inside when they are checked) checkboxes.  (If you want to use image 
+        checkboxes, read on the Conclusion page about how to set the images for the checkboxes.)  The final line of this section of code sets the checkboxModels property 
+        of the view controller to the array of checkboxModels that we created at the beginning of this section of code.  Below, is the code for the last part of the 
+        prepareForSegue function that I have just been describing.  This code is inserted just before the last curly brace in the prepareForSegue function.
+    </p>
+    <pre>
+    if (doneButton !== sender) {
+        var checkboxModels: [TNSwiftyCheckboxModel] = []
+        if let typeOfSchoolButtonString: String = globalTypeOfSchoolButton.currentTitle {
+            let typeOfSchool = typeOfSchoolButtonString.componentsSeparatedByString(", ")
+            checkboxModels = [
+                
+                TNSwiftyCheckboxModel(name: "Daycare", checked: typeOfSchool.contains("Daycare")),
+                TNSwiftyCheckboxModel(name: "Preschool", checked: typeOfSchool.contains("Preschool")),
+                TNSwiftyCheckboxModel(name: "Elementary School (K-5)", checked: typeOfSchool.contains("Elementary School (K-5)")),
+                TNSwiftyCheckboxModel(name: "Middle School (6-8)", checked: typeOfSchool.contains("Middle School (6-8)")),
+                TNSwiftyCheckboxModel(name: "High School (9-12)", checked: typeOfSchool.contains("High School (9-12)"))
+                
+            ]
+            
+            checkboxVC = segue.destinationViewController as! TNSwiftyCheckboxViewController
+            checkboxVC.type = .Image
+            checkboxVC.checkboxModels = checkboxModels
+        }
+    }</pre>
+    <br>
+    <h4>Complete Code for TypeOfSchoolViewController Class</h4>
+    <p>
+        We are done editing the TypeOfSchoolViewController.swift file, so below I have pasted the complete code.
+    </p>
+    <pre>
+    import UIKit
+    import TNSwiftyCheckboxGroup
+
+    class TypeOfSchoolViewController: UIViewController {
+
+        // MARK: - IBOutlets
+        @IBOutlet weak var doneButton: UIBarButtonItem!
+        
+        // MARK: - Properties
+        var checkboxVC: TNSwiftyCheckboxViewController!
+        var typeOfSchoolString: String = String()
+        
+        // MARK: - Lifecycle methods
+        override func viewDidLoad() {
+            
+            super.viewDidLoad()
+            
+        }
+        
+        override func didReceiveMemoryWarning() {
+            
+            super.didReceiveMemoryWarning()
+            
+        }
+        
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            
+            if doneButton === sender {
+                let typeOfSchoolCheckboxModelArray: [TNSwiftyCheckboxModel] = checkboxVC.checkedModels!
+                var typeOfSchoolStringArray: [String] = [String]()
+                for typeOfSchoolCheckboxModel in typeOfSchoolCheckboxModelArray {
+                    typeOfSchoolStringArray.append(typeOfSchoolCheckboxModel.name)
+                }
+                typeOfSchoolString = typeOfSchoolStringArray.joinWithSeparator(", ")
+            }
+            
+            if (doneButton !== sender) {
+                var checkboxModels: [TNSwiftyCheckboxModel] = []
+                if let typeOfSchoolButtonString: String = globalTypeOfSchoolButton.currentTitle {
+                    let typeOfSchool = typeOfSchoolButtonString.componentsSeparatedByString(", ")
+                    checkboxModels = [
+                        
+                        TNSwiftyCheckboxModel(name: "Daycare", checked: typeOfSchool.contains("Daycare")),
+                        TNSwiftyCheckboxModel(name: "Preschool", checked: typeOfSchool.contains("Preschool")),
+                        TNSwiftyCheckboxModel(name: "Elementary School (K-5)", checked: typeOfSchool.contains("Elementary School (K-5)")),
+                        TNSwiftyCheckboxModel(name: "Middle School (6-8)", checked: typeOfSchool.contains("Middle School (6-8)")),
+                        TNSwiftyCheckboxModel(name: "High School (9-12)", checked: typeOfSchool.contains("High School (9-12)"))
+                        
+                    ]
+                    
+                    checkboxVC = segue.destinationViewController as! TNSwiftyCheckboxViewController
+                    checkboxVC.type = .Image
+                    checkboxVC.checkboxModels = checkboxModels
+                }
+            }
+            
+        }
+        
+    }</pre>
+    <br>
+    <h4>Now it is time to tackle navigation to and from the school form!</h4>
+    <br>
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="{{ url_for('makeStoryboard') }}" class="btn btn-default" role="button">Previous</a>
+        <a href="{{ url_for('moreNavigation') }}" class="btn btn-default" role="button">Next</a>
+    </div>
+    <br>
+{% endblock %}

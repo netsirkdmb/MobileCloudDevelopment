@@ -1,0 +1,77 @@
+{# Kristen Dhuse #}
+{# CS496 - How To Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{% set title = "Make Checkbox View Controller" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+    {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <p>
+        We will start out with a fairly simple view controller that we will modify again after we create our storyboard.
+    </p>
+    <h4>Make a new ViewController file:</h4>
+    <ol>
+        <li>Make a new UIViewController file by clicking New->File in the Xcode File menu.</li>
+        <li>In the dialog that shows up, choose Source under iOS on the left side and then pick Cocoa Touch Class before clicking the next button.</li>
+        <li>In the class field of the dialog, give your new class a name.  Mine is called TypeOfSchoolViewController.  The "ViewController" 
+            suffix is added automatically when you select UIViewController in the "Subclass of" dropdown.</li>
+        <li>Make sure to check the box next to "Also create XIB file" before clicking the next button again.</li>
+        <li>Navigate to the folder with all of your other .swift files for this project and click the create button.</li>
+    </ol>
+    <h4>Add Code to the New ViewController File</h4>
+    <p>
+        Now it is time to add some code.  Your new view controller file will initialize with a viewDidLoad() and a didReceiveMemoryWarning() function as 
+        well as a prepareForSegue function that has been commented out.  First, we want to make it so we can use TNSwiftyCheckboxGroup functionality in 
+        this view controller by adding an import statement <code>import TNSwiftyCheckboxGroup</code> below the <code>import UIKit</code> line at the top 
+        of the file.  Next, add the following lines above the viewDidLoad() function.
+    </p>
+    <pre>
+    // MARK: - IBOutlets
+    
+    // MARK: - Properties
+    var checkboxVC: TNSwiftyCheckboxViewController!
+    var typeOfSchoolString: String = String()</pre>
+    <br>
+    <p>        
+        The commented lines starting with <code>// MARK: </code> are used by Xcode to help you jump to different parts of your file.
+    </p>
+    <img src={{ url_for('static', filename = 'navigationMenu.jpg') }} alt="Navigation Menu" class="img-responsive center-image">
+    <br>
+    <p>
+        The IBOutlets section will be used later when we connect this view controller file to the storyboard.  The variables that we just added to the 
+        Properties section will also be used later when we tell the view controller what to do with the information in the checkboxes as we navigate to 
+        and from the page in the prepareForSegue function.  We have enough in this file now to start on the storyboard.
+    </p>
+    <br>
+    <h4>Now you are ready to start adding the views for the TNSwiftyCheckboxGroup to the storyboard!</h4>
+    <br>
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="{{ url_for('getStarted') }}" class="btn btn-default" role="button">Previous</a>
+        <a href="{{ url_for('makeStoryboard') }}" class="btn btn-default" role="button">Next</a>
+    </div>
+    <br>
+{% endblock %}

@@ -1,0 +1,71 @@
+{# Kristen Dhuse #}
+{# CS496 - How To Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{% set title = "Conclusion" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+    {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <p>
+        If you have followed the steps up to this page, your TNSwiftyCheckboxes should work, but I wanted to go over a few more details to give your app a little 
+        more polish.
+    </p>
+    <br>
+    <h4>Text on "Choose Type(s) of School" Button</h4>
+    <p>
+        When we replace the "Choose Type(s) of School" text on this button with the types of schools that the user has checked, the list can get long and go off of 
+        the screen.  To make it look cleaner, you can choose "Truncate Tail" in the Line Break dropdown of the Attribute Inspector for the button.  This will truncate 
+        the text on the button so that it fits on the screen and add an elipsis (...) at the end to idicate that there is more text that doesn't fit on the screen.
+    </p>
+    <br>
+    <h4>Image Checkboxes</h4>
+    <p>
+        If you choose to use the image checkbox type like I did, you must provide the images for the checkboxes.  The images must be 40x40 pixels in size and you need 
+        to provide an image for an unchecked box and for a checked box.  I used the following images, which I got from the sample TNSwiftyCheckboxGroup project that 
+        can be obtained by cloning the repo on the <a href="https://github.com/frederik-jacques/TNSwiftyCheckboxGroup/tree/swift_2">Github</a> page.
+    </p>
+    <img src={{ url_for('static', filename = 'mark-checked@2x.png') }} alt="Checked Checkbox" class="img-responsive center-image-no-border">
+    <br>
+    <img src={{ url_for('static', filename = 'mark-unchecked@2x.png') }} alt="Unchecked Checkbox" class="img-responsive center-image-no-border">
+    <br>
+    <p>        
+        You can add the images to your project by clicking on Assets.xcassets in the list of files in your project.  At the bottom of the column that appears on the 
+        left side of the center screen, click the "plus" symbol.  Click "New Image Set" in the menu that appears.  Rename the image set to "checked-image" and drag your 
+        image file for a checked box to the outline above the 2x label.  Follow the same steps for your image file for an unchecked box, renaming the image set to 
+        "unchecked-image".
+    </p>
+    <img src={{ url_for('static', filename = 'imageSet.jpg') }} alt="Image Set" class="img-responsive center-image">
+    <br>
+    <br>
+    <h4>Thanks for reading my How-to Guide on TNSwiftyCheckboxGroup!  I hope it helps you when you are making your own app!</h4>
+    <br>
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="{{ url_for('moreNavigation') }}" class="btn btn-default" role="button">Previous</a>
+        <a href="{{ url_for('conclusion') }}" class="btn btn-default disabled" role="button">Next</a>
+    </div>
+    <br>
+{% endblock %}

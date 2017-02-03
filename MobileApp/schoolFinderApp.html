@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<!-- References: -->
+<!-- For help with jQuery Mobile: -->
+<!-- http://demos.jquerymobile.com/1.4.5/ -->
+<!-- For help with Bootstrap: -->
+<!-- http://getbootstrap.com/components/ -->
+<!-- For help with geolocation -->
+<!-- http://www.w3schools.com/html/html5_geolocation.asp -->
+<!-- For help with finding zip code from lat and long -->
+<!-- http://stackoverflow.com/questions/8372223/get-zip-code-based-on-lat-long -->
+
+
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<!-- Include meta tag to ensure proper rendering and touch zooming -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>SchoolFinder</title>
+
+		<!-- Include jQuery Mobile stylesheets -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+		<!-- Include the jQuery library -->
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+		<!-- Include the Bootstrap library -->
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		
+		<!-- Include the jQuery Mobile library -->
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		
+	</head>
+
+	<body class="ui-mobile-viewport ui-overlay-a">
+
+		<!-- ***************************************Start of School Table Page*************************************** -->
+		<div data-role="page" id="schools" data-url="schools" tabindex="0" class="ui-page ui-page-theme-a ui-page-active" style="min-height: 855px;">
+
+			<script>
+				function refreshSchools() {
+					$.getJSON( "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/schools", function( data ) {
+						$('#school-table tbody').empty();
+						$.each( data, function( index, school ) {
+							var foreignLanguagesTaught = school.foreignLanguagesTaught;
+							if (foreignLanguagesTaught == null) {
+								foreignLanguagesTaught = [];
+							}
+							$('#school-table').append('<tr data_school_id="' + school._id + '"><td><span class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext school-delete-btn">Delete</span></td>' + 
+																				'<td>' + school.schoolName + '</td>' + 
+																				'<td>' + school.typeOfSchool.join(", ") + '</td>' + 
+																				'<td>' + school.pubOrPri + '</td>' + 
+																				'<td>' + school.location + '</td>' + 
+																				'<td>' + foreignLanguagesTaught.join(", ") + '</td>' + 
+																				'<td>' + school.rating + '</td></tr>');
+						});
+						$("#school-table").enhanceWithin();
+						buildStudentMenus(null);
+						$(".school-delete-btn").click(schoolDeleteClickHandler);
+					});
+				}
+				
+				$( '#schools' ).on( 'pageinit', refreshSchools);
+
+				function schoolDeleteClickHandler(event) {
+					var idToDelete = $(this).parent().parent().attr("data_school_id");
+					$.ajax({
+						url: "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/schools/" + idToDelete,
+						type: 'DELETE',
+						success: function() {
+							refreshSchools();
+							refreshStudents();
+						}
+					});
+					$(this).parent().parent().remove();
+				}
+			</script>
+			
+			<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+				<h1 class="ui-title" role="heading" aria-level="1">Schools</h1>
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content">
+				<a href="#add-schools" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" data-transition="slide">Add a School</a>
+				<br>
+				<form>
+					<input id="schools-filterTable-input" data-type="search">
+        		</form>
+				<table id="school-table" data-role="table" data-filter="true" data-input="#schools-filterTable-input" class="ui-responsive table-stroke table-stripe ui-body-d">
+					<thead>
+						<tr class="ui-bar-d">
+							<th></th>
+							<th>Name</th>
+							<th>Type of School</th>
+							<th>Public or Private</th>
+							<th>Location (zip code)</th>
+							<th>Foreign Language(s) Taught</th>
+							<th>Rating (1-10)</th>
+						</tr>
+					</thead>
+						<tbody id="school-table-body">
+							
+						</tbody>
+				</table>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed" data-theme="a">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#schools" class="ui-btn-active ui-state-persist" data-transition="slide">Schools</a></li>
+						<li><a href="#students" data-transition="slide">Students</a></li>
+						<li><a href="#parents" data-transition="slide">Parents</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+		</div><!-- /page -->
+		
+		<!-- ***************************************Start of Student Table Page*************************************** -->
+		<div data-role="page" id="students" data-url="students" tabindex="1" class="ui-page ui-page-theme-a" style="min-height: 855px;">
+		
+			<script>
+				function refreshStudents() {
+					$.getJSON( "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/students", function( data ) {
+						$('#student-table tbody').empty();
+						$.each( data, function( index, student ) {
+							var pastSchoolsName = student.pastSchoolsName;
+							var parentNameST = student.parentNameST;
+							if (pastSchoolsName == null) {
+								pastSchoolsName = [];
+							}
+							if (parentNameST == null) {
+								parentNameST = [];
+							}
+							$('#student-table').append('<tr data_student_id="' + student._id + '"><td><span class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext student-delete-btn">Delete</span></td>' + 
+																					'<td>' + student.studentName + '</td>' + 
+																					'<td>' + student.grade + '</td>' + 
+																					'<td>' + student.currentSchoolName + '</td>' + 
+																					'<td>' + pastSchoolsName.join(", ") + '</td>' + 
+																					'<td>' + parentNameST.join(", ") + '</td></tr>');
+						});
+						$("#student-table").enhanceWithin();
+						buildParentMenus(null);
+						$(".student-delete-btn").click(studentDeleteClickHandler);
+					});
+				}
+				
+				// Refresh the students table when the students page initializes
+				$( '#students' ).on( 'pageinit',refreshStudents);
+
+				function studentDeleteClickHandler(event) {
+					var idToDelete = $(this).parent().parent().attr("data_student_id");
+					$.ajax({
+						url: "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/students/" + idToDelete,
+						type: 'DELETE',
+						success: function() {
+							refreshStudents();
+							refreshParents();
+						}
+					});
+					$(this).parent().parent().remove();
+				}
+			</script>
+			
+			<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+				<h1 class="ui-title" role="heading" aria-level="1">Students</h1>
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content">
+				<a href="#add-students" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" data-transition="slide">Add a Student</a>
+				<br>
+				<form>
+					<input id="students-filterTable-input" data-type="search">
+				</form>
+				<table id="student-table" data-role="table" data-filter="true" data-input="#students-filterTable-input" class="ui-responsive table-stroke table-stripe ui-body-d">
+					<thead>
+						<tr class="ui-bar-d">
+							<th></th>
+							<th>Name</th>
+							<th>Grade</th>
+							<th>Current School</th>
+							<th>Past School(s)</th>
+							<th>Parent(s)</th>
+						</tr>
+					</thead>
+						<tbody>
+							
+						</tbody>
+				</table>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed" data-theme="a">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#schools" data-transition="slide">Schools</a></li>
+						<li><a href="#students" class="ui-btn-active ui-state-persist" data-transition="slide">Students</a></li>
+						<li><a href="#parents" data-transition="slide">Parents</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+		</div><!-- /page -->
+		
+		<!-- ***************************************Start of Parent Table Page*************************************** -->
+		<div data-role="page" id="parents" data-url="parents" tabindex="2" class="ui-page ui-page-theme-a" style="min-height: 855px;">
+			
+			<script>
+				function refreshParents() {
+					$.getJSON( "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/parents", function( data ) {
+						$('#parent-table tbody').empty();
+						$.each( data, function( index, parent ) {
+							var studentNamePT = parent.studentNamePT;
+							if (studentNamePT == null) {
+								studentNamePT = [];
+							}
+							$('#parent-table').append('<tr data_parent_id="' + parent._id + '"><td><span class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext parent-delete-btn">Delete</span></td>' + 
+																					'<td>' + parent.parentName + '</td><td>' + studentNamePT.join(", ") + '</td></tr>');
+						});
+						$("#parent-table").enhanceWithin();
+						buildStudentMenus(null);
+						$(".parent-delete-btn").click(parentDeleteClickHandler);
+					});
+				}
+				
+				$( '#parents' ).on( 'pageinit',refreshParents);
+
+				function parentDeleteClickHandler(event) {
+					var idToDelete = $(this).parent().parent().attr("data_parent_id");
+					$.ajax({
+						url: "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/parents/" + idToDelete,
+						type: 'DELETE',
+						success: function() {
+							refreshStudents();
+							refreshParents();
+						}
+					});
+					$(this).parent().parent().remove();
+				}
+			</script>
+
+			<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+				<h1 class="ui-title" role="heading" aria-level="1">Parents</h1>
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content">
+				<a href="#add-parents" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" data-transition="slide">Add a Parent</a>
+				<br>
+				<form>
+					<input id="parents-filterTable-input" data-type="search">
+        		</form>
+				<table id="parent-table" data-role="table" data-filter="true" data-input="#parents-filterTable-input" class="ui-responsive table-stroke table-stripe ui-body-d">
+					<thead>
+						<tr class="ui-bar-d">
+							<th></th>
+							<th>Name</th>
+							<th data-priority="1">Student(s)</th>
+						</tr>
+					</thead>
+						<tbody>
+							
+						</tbody>
+				</table>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed" data-theme="a">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#schools" data-transition="slide">Schools</a></li>
+						<li><a href="#students" data-transition="slide">Students</a></li>
+						<li><a href="#parents" class="ui-btn-active ui-state-persist" data-transition="slide">Parents</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+		</div><!-- /page -->
+
+
+		<!-- ***************************************Start of Forms Pages*************************************** -->
+
+		<!-- ***************************************Start of School Form Page*************************************** -->
+		<div data-role="page" id="add-schools" data-url="add-schools" class="ui-page ui-page-theme-a" style="min-height: 855px;">
+		
+			<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+				<h1 class="ui-title" role="heading" aria-level="1">Schools</h1>
+			</div><!-- /header -->
+			
+			<div data-role="main" class="ui-content container">
+				<form name="schoolForm" id="schoolForm">
+					<div>
+						<label class="text-danger" style="display: none" id="schoolNameAlert">Please enter the name of the school.</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="schoolName">School Name</label>
+						<input type="text" id="schoolName" class="schoolName" name="schoolName" placeholder="name" value="" required>
+					</div>
+					<br>
+					<div>
+						<label class="text-danger" style="display: none" id="typeAlert">Please choose at least one type of school.</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="typeOfSchool">Type of School</label>
+						<select name="typeOfSchool" id="typeOfSchool" class="typeOfSchool" multiple="multiple" data-native-menu="false">
+							<option data-placeholder="true" value="none">Choose the Type(s) of School</option>
+							<option value="Daycare" class="typeOfSchool">Daycare</option>
+							<option value="Preschool" class="typeOfSchool">Preschool</option>
+							<option value="Elementary School (K-5)" class="typeOfSchool">Elementary School (K-5)</option>
+							<option value="Middle School (6-8)" class="typeOfSchool">Middle School (6-8)</option>
+							<option value="High School (9-12)" class="typeOfSchool">High School (9-12)</option>
+						 </select>
+					</div>
+					<br>
+					<div>
+						<label class="text-danger" style="display: none" id="pubOrPriAlert">Please choose whether the school is a public or a private school.</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="pubOrPri">Public or Private School</label>
+						<select name="pubOrPri" id="pubOrPri" data-native-menu="false">
+							<option data-placeholder="true" value="none">Choose Public or Private</option>
+							<option value="Public">Public</option>
+							<option value="Private">Private</option>
+						</select>
+					</div>
+					<br>
+					<div>
+						<label class="text-danger" style="display: none"  id="locationAlert">Please enter a valid 5-digit zip code.</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="location">Location (zip code)</label>
+						<input type="text" pattern="[0-9]{5}" id="location" name="location" placeholder="zip" value="" required aria-describedby="helpBlock">
+					</div>
+					<div class="ui-field-contain">
+						<label for="currentLocation" class="help-block" style="font-size: small;">Zip code must be 5 digits long.</label>
+						<input type="button" data-inline="true" value="Use Current Location" class="currentLocationBtn" id="currentLocationBtn">
+					</div>
+					<br>
+					<div class="ui-field-contain">
+						<label for="foreignLanguagesTaught">Foreign Language(s) Taught</label>
+						<select name="foreignLanguagesTaught" id="foreignLanguagesTaught" class="foreignLanguagesTaught" multiple="multiple" data-native-menu="false">
+							<option data-placeholder="true" value="none">Choose the Foreign Language(s) Taught</option>
+							<option value="Spanish" class="foreignLanguagesTaught">Spanish</option>
+							<option value="French" class="foreignLanguagesTaught">French</option>
+							<option value="German" class="foreignLanguagesTaught">German</option>
+							<option value="Japanese" class="foreignLanguagesTaught">Japanese</option>
+							<option value="Mandarin" class="foreignLanguagesTaught">Mandarin</option>
+						</select>
+					</div>
+					<br>
+					<div>
+						<label class="text-danger" style="display: none"  id="ratingAlert">Please choose an integer rating between 1 and 10 (inclusive).</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="rating">Rating (1-10)</label>
+						<input type="range" name="rating" id="rating" data-highlight="true" min="1" max="10" value="0">
+					</div>
+					<br>
+					<br>
+					<div class="ui-grid-a ui-responsive">
+						<div class="ui-block-a">
+							<a href="#schools" class="ui-btn ui-shadow ui-corner-all" data-transition="slide" onclick="$('#schoolForm').trigger('reset'); hideSchoolValidationAlerts();">Cancel</a>
+						</div>
+						<div class="ui-block-b">
+							<button id="add-school-btn" class="ui-btn ui-shadow ui-corner-all">Add School</button>
+						</div>
+					</div>
+				</form>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed" data-theme="a">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#schools" class="ui-btn-active ui-state-persist" data-transition="slide">Schools</a></li>
+						<li><a href="#students" data-transition="slide">Students</a></li>
+						<li><a href="#parents" data-transition="slide">Parents</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+
+			<script>
+				function validateSchoolForm() {
+					var valid = true;
+					var name = document.forms["schoolForm"]["schoolName"].value;
+					var pubOrPri = document.forms["schoolForm"]["pubOrPri"].value;
+					var location = document.forms["schoolForm"]["location"].value;
+					var rating = document.forms["schoolForm"]["rating"].value;
+					var data = $("#schoolForm").serializeArray();
+					if (name == null || name == "") {
+						$("#schoolNameAlert").show();
+						valid = false;
+					} else {
+						$("#schoolNameAlert").hide();
+					}
+					if(data.find(function(x) {return x.name == "typeOfSchool"; })) {
+						$("#typeAlert").hide();
+					} else {
+						$("#typeAlert").show();
+						valid = false;
+					}
+					if (pubOrPri == null || pubOrPri == "" || pubOrPri == "none") {
+						$("#pubOrPriAlert").show();
+						valid = false;
+					} else {
+						$("#pubOrPriAlert").hide();
+					}
+					if (location == null || location == "" || !location.match(/^[0-9]{5}$/)) {
+						$("#locationAlert").show();
+						valid = false;
+					} else {
+						$("#locationAlert").hide();
+					}
+					if (rating == null || rating == "" || rating > 10 || rating < 1 || !rating.match(/^([0-9]|10)$/)) {
+							$("#ratingAlert").show();
+							valid = false;
+					} else {
+							$("#ratingAlert").hide();
+					}
+					return valid;
+				}
+
+				function hideSchoolValidationAlerts() {
+					$("#schoolNameAlert").hide();
+					$("#typeAlert").hide();
+					$("#pubOrPriAlert").hide();
+					$("#locationAlert").hide();
+					$("#ratingAlert").hide();
+				}
+
+				function submitSchoolForm() {
+					var url = "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/schools";
+					var data = $("#schoolForm").serializeArray();
+					$.post(url, data, function() {
+						refreshSchools();
+						$.mobile.changePage("#schools");
+						$('#schoolForm').trigger("reset");
+					});
+				}
+
+				$( '#add-schools').on( 'pageinit',function(event){
+					$("#add-school-btn").click(function (event) {
+						event.preventDefault();
+						if(validateSchoolForm()) {
+							submitSchoolForm();
+						}
+					});
+
+					$("#currentLocationBtn").click(function (event) {
+						if (navigator.geolocation) {
+							navigator.geolocation.getCurrentPosition(function (position) {
+								var latlng = {"lat": position.coords.latitude, "lng": position.coords.longitude, "username": "netsirkdmb"};
+								var url = "http://api.geonames.org/findNearbyPostalCodesJSON"
+								$.getJSON(url, latlng, function(data) {
+									if (data.postalCodes.length > 0) {
+										var zip = data.postalCodes[0].postalCode;
+										$("#location").val(zip);
+									} else {
+										alert("No zip code found.");
+									}
+								});
+							},
+							function() {
+								alert("error getting location.");
+							});
+						} else {
+							alert("Geolocation is not supported by this browser.");
+						}
+					});
+				});
+			</script>
+
+		</div><!-- /page -->
+
+		<!-- ***************************************Start of Student Form Page*************************************** -->
+		<div data-role="page" id="add-students" data-url="add-students" class="ui-page ui-page-theme-a" style="min-height: 855px;">
+
+			<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+				<h1 class="ui-title" role="heading" aria-level="1">Students</h1>
+			</div><!-- /header -->
+			
+			<div data-role="main" class="ui-content container">
+				<form name="studentForm" id="studentForm">
+					<div>
+						<label class="text-danger" style="display: none" id="studentNameAlert">Please enter the name of the student.</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="studentName">Student Name</label>
+						<input type="text" id="studentName" name="studentName" placeholder="name" value="" required>
+					</div>
+					<br>
+					<div>
+						<label class="text-danger" style="display: none" id="gradeAlert">Please choose a grade for the student.</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="grade">Grade</label>
+						<select name="grade" id="grade" data-native-menu="false">
+							<option data-placeholder="true" value="none">Choose a Grade</option>
+							<option value="Daycare">Daycare</option>
+							<option value="Preschool">Preschool</option>
+							<option value="K">Kindergarten</option>
+							<option value="1">1st</option>
+							<option value="2">2nd</option>
+							<option value="3">3rd</option>
+							<option value="4">4th</option>
+							<option value="5">5th</option>
+							<option value="6">6th</option>
+							<option value="7">7th</option>
+							<option value="8">8th</option>
+							<option value="9">9th</option>
+							<option value="10">10th</option>
+							<option value="11">11th</option>
+							<option value="12">12th</option>
+						</select>
+					</div>
+					<br>
+					<div>
+						<label class="text-danger" style="display: none" id="currSchoolAlert">Please choose a current school for the student.</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="currentSchoolST">Current School</label>
+						<select name="currentSchoolST" id="currentSchoolST" data-native-menu="false">
+							
+						</select>
+					</div>
+					<br>
+					<div>
+						<label class="text-danger" style="display: none" id="pastSchoolsAlert">Please choose a past school for the student.</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="pastSchoolsST">Past School(s)</label>
+						<select name="pastSchoolsST" id="pastSchoolsST" multiple="multiple" data-native-menu="false">
+							
+						</select>
+					</div>
+					<br>
+					<div class="ui-field-contain">
+						<label for="parentID">Parent(s)</label>
+						<select name="parentID" id="parentID" multiple="multiple" data-native-menu="false">
+							
+						</select>
+					</div>
+					<br>
+					<br>
+					<div class="ui-grid-a ui-responsive">
+						<div class="ui-block-a">
+							<a href="#students" class="ui-btn ui-shadow ui-corner-all" data-transition="slide" onclick="$('#studentForm').trigger('reset'); hideStudentValidationAlerts();">Cancel</a>
+						</div>
+						<div class="ui-block-b">
+							<button id="add-student-btn" class="ui-btn ui-shadow ui-corner-all">Add Student</button>
+						</div>
+					</div>
+				</form>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed" data-theme="a">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#schools" data-transition="slide">Schools</a></li>
+						<li><a href="#students" class="ui-btn-active ui-state-persist" data-transition="slide">Students</a></li>
+						<li><a href="#parents" data-transition="slide">Parents</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+			
+			<script>
+				function buildStudentMenus(event) {
+					$.getJSON( "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/schools", function( data ) {
+						$("#currentSchoolST").empty();
+						$("#currentSchoolST").append('<option data-placeholder="true" class="currentSchoolST" value="none">Choose a Current School</option>');
+						$("#pastSchoolsST").empty();
+						$("#pastSchoolsST").append('<option data-placeholder="true" class="pastSchoolsST" value="none">Choose the Past School(s) Attended</option>');
+						$.each( data, function( index, school ) {
+							$("#currentSchoolST").append('<option class="currentSchoolST" value="' + school._id + '">' + school.schoolName + '</option>');
+							$('#pastSchoolsST').append('<option class="pastSchoolsST" value="' + school._id + '">' + school.schoolName + '</option>');
+						});
+						$( "#currentSchoolST" ).selectmenu( "refresh", true );
+						$( "#pastSchoolsST" ).selectmenu( "refresh", true );
+					});
+					$.getJSON( "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/parents", function( data ) {
+						$("#parentID").empty();
+						$("#parentID").append('<option data-placeholder="true" class="parentID" value="none">Choose the Parent(s)</option>');
+						$.each( data, function( index, parent ) {
+							$("#parentID").append('<option class="parentID" value="' + parent._id + '">' + parent.parentName + '</option>');
+						});
+						$( "#parentID" ).selectmenu( "refresh", true );
+					});
+				}
+
+				$( '#add-students' ).on( 'pagebeforecreate', buildStudentMenus);
+
+				function validateStudentForm() {
+					var valid = true;
+					var name = document.forms["studentForm"]["studentName"].value;
+					var grade = document.forms["studentForm"]["grade"].value;
+					var currentSchool = document.forms["studentForm"]["currentSchoolST"].value;
+					var data = $("#studentForm").serializeArray();
+					if (name == null || name == "") {
+						$("#studentNameAlert").show();
+						valid = false;
+					} else {
+						$("#studentNameAlert").hide();
+					}
+					if (grade == null || grade == "" || grade == "none") {
+						$("#gradeAlert").show();
+						valid = false;
+					} else {
+						$("#gradeAlert").hide();
+					}
+					if (currentSchool == null || currentSchool == "" || currentSchool == "none") {
+						$("#currSchoolAlert").show();
+						valid = false;
+					} else {
+						$("#currSchoolAlert").hide();
+					}
+					if(data.find(function(x) {return x.name == "pastSchoolsST";	})) {
+						$("#pastSchoolsAlert").hide();
+					} else {
+						$("#pastSchoolsAlert").show();
+						valid = false;
+					}
+					return valid;
+				}
+
+				function hideStudentValidationAlerts() {
+					$("#studentNameAlert").hide();
+					$("#gradeAlert").hide();
+					$("#currSchoolAlert").hide();
+					$("#pastSchoolsAlert").hide();
+				}
+
+				function submitStudentForm() {
+					var url = "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/students";
+					var dataToBeSent = $("#studentForm").serializeArray();
+					var parentIDList = dataToBeSent.filter(function(x) {
+						return x.name == "parentID";	
+					});
+					var promiseList = [];
+					$.post(url, dataToBeSent, function(data, textStatus) {
+						var linkURL = "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/linkStudentToParent";
+						var newStudentID = data["_id"];
+						parentIDList.forEach(function(dataObject) {
+							var parentID = dataObject.value;
+							var newData = {"student_id": newStudentID, "parent_id": parentID};
+							promiseList.push($.post(linkURL, newData));
+						});
+						Promise.all(promiseList).then(function() {
+							refreshStudents();
+							refreshParents();
+							$.mobile.changePage("#students");
+							$('#studentForm').trigger("reset");
+						});
+					}, "json");
+				}
+
+				$( '#add-students').on( 'pageinit',function(event){
+					$("#add-student-btn").click(function (event) {
+						event.preventDefault();
+						if(validateStudentForm()) {
+							submitStudentForm();
+						}
+					});
+				});
+			</script>
+
+		</div><!-- /page -->
+
+		<!-- ***************************************Start of Parent Form Page*************************************** -->
+		<div data-role="page" id="add-parents" data-url="add-parents" class="ui-page ui-page-theme-a" style="min-height: 855px;">
+
+			<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+				<h1 class="ui-title" role="heading" aria-level="1">Parents</h1>
+			</div><!-- /header -->
+			
+			<div data-role="main" class="ui-content container">
+				<form name="parentForm" id="parentForm">
+					<div>
+						<label class="text-danger" style="display: none" id="parentNameAlert">Please enter the name of the parent.</label>
+					</div>
+					<div class="ui-field-contain">
+						<label for="parentName">Parent Name</label>
+						<input type="text" id="parentName" name="parentName" placeholder="name" value="" required>
+					</div>
+					<br>
+					<div class="ui-field-contain">
+						<label for="studentID">Student(s)</label>
+						<select name="studentID" id="studentID" multiple="multiple" data-native-menu="false">
+							
+						</select>
+					</div>
+					<br>
+					<br>
+					<div class="ui-grid-a ui-responsive">
+						<div class="ui-block-a">
+							<a href="#parents" class="ui-btn ui-shadow ui-corner-all" data-transition="slide" onclick="$('#parentForm').trigger('reset'); hideParentValidationAlerts();">Cancel</a>
+						</div>
+						<div class="ui-block-b">
+							<button id="add-parent-btn" class="ui-btn ui-shadow ui-corner-all">Add Parent</button>
+						</div>
+					</div>
+				</form>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed" data-theme="a">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#schools" data-transition="slide">Schools</a></li>
+						<li><a href="#students" data-transition="slide">Students</a></li>
+						<li><a href="#parents" class="ui-btn-active ui-state-persist" data-transition="slide">Parents</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+			
+			<script>
+				function buildParentMenus(event) {
+					$.getJSON( "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/students", function( data ) {
+						$("#studentID").empty();
+						$("#studentID").append('<option data-placeholder="true" class="studentID" value="none">Choose the Student(s)</option>');
+						$.each( data, function( index, student ) {
+							$("#studentID").append('<option class="studentID" value="' + student._id + '">' + student.studentName + '</option>');
+						});
+						$( "#studentID" ).selectmenu( "refresh", true );
+					});
+				}
+
+				$( '#add-parents' ).on( 'pagebeforecreate', buildParentMenus);
+				
+				function validateParentForm() {
+					var valid = true;
+					var name = document.forms["parentForm"]["parentName"].value;
+					if (name == null || name == "") {
+						$("#parentNameAlert").show();
+						valid = false;
+					} else {
+						$("#parentNameAlert").hide();
+					}
+					return valid;
+				}
+
+				function hideParentValidationAlerts() {
+					$("#parentNameAlert").hide();
+				}
+
+				function submitParentForm() {
+					var url = "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/parents";
+					var dataToBeSent = $("#parentForm").serializeArray();
+					var studentIDList = dataToBeSent.filter(function(x) {
+						return x.name == "studentID";	
+					});
+					var promiseList = [];
+					$.post(url, dataToBeSent, function(data, textStatus) {
+						var linkURL = "http://ec2-52-10-238-162.us-west-2.compute.amazonaws.com:5600/linkStudentToParent";
+						var newParentID = data["_id"];
+						studentIDList.forEach(function(dataObject) {
+							var studentID = dataObject.value;
+							var newData = {"student_id": studentID, "parent_id": newParentID};
+							promiseList.push($.post(linkURL, newData));
+						});
+						Promise.all(promiseList).then(function () {
+							refreshParents();
+							refreshStudents();
+							$.mobile.changePage("#parents");
+							$('#parentForm').trigger("reset");
+						});
+					}, "json");
+				}
+
+				$( '#add-parents').on( 'pageinit',function(event){
+					$("#add-parent-btn").click(function (event) {
+						event.preventDefault();
+						if(validateParentForm()) {
+							submitParentForm();
+						}
+					});
+				});
+			</script>
+
+		</div><!-- /page -->
+
+		<div class="ui-loader ui-corner-all ui-body-a ui-loader-default">
+			<span class="ui-icon-loading"></span>
+			<h1>loading</h1>
+		</div>
+		
+	</body>
+	
+</html>

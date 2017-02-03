@@ -1,0 +1,59 @@
+{# Kristen Dhuse #}
+{# CS496 - How To Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{% set title = "Background" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+	{{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+	{{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <p>
+        I started out thinking that I would do this assignment on how to make an iOS app using Swift.  I had trouble figuring out how to 
+        do all of the form input things that I needed to do for the Mobile Development assignment and ended up making a mobile web app 
+        instead.  Therefore, I thought this was a good chance to learn how to make a smaller and slightly simpler app that would allow 
+        me to try to figure out some of the form inputs that had given me trouble before.  I decided to make an app to display and edit 
+        the simplest table in my API (the schools table).
+    </p>
+    <p>
+        The main aspect of form input that had given me trouble for the Moblie Development assignment was how to allow a user to select 
+        multiple options from a list of choices (like checkboxes on a website).  The built-in options don't seem to allow multiple selection.  
+        So, when I was working on my new iOS app, I started looking around on the internet for libraries that I could use for this functionality.  
+        While I was searching, I stumbled upon a library called 
+        <a href="https://the-nerd.be/2015/08/12/tnswiftycheckboxgroup-create-checkboxes-for-swift/">TNSwiftyCheckboxGroup</a>.  
+        This seemed library like exactly what I needed, if I could only figure out how to use it!  There is documentation, but it is very 
+        vague and incomplete.
+    </p>
+    <p>
+        This is how my How-To idea was born.  In this guide, I'm going to show how to use the "TNSwiftyCheckboxGroup" for form input.  I 
+        will assume some basic knowledge of Swift and using the storyboard to make layouts in Xcode.
+    </p>
+    <br>
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="{{ url_for('background') }}" class="btn btn-default disabled" role="button">Previous</a>
+        <a href="{{ url_for('installTNSwifty') }}" class="btn btn-default" role="button">Next</a>
+    </div>
+    <br>
+{% endblock %}

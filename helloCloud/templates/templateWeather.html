@@ -1,0 +1,52 @@
+{# Kristen Dhuse #}
+{# CS496 - Hello Cloud Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with degrees Fahrenheit symbol #}
+{# http://www.w3schools.com/charsets/ref_utf_letterlike.asp #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+  {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <h4> The current weather in {{theLocation}} is:</h4>
+    <p>{{currStatus}}</p>
+    <p>{{theTemp}} &#8457;</p> <!-- #8457 gives the degrees Fahrenheit symbol -->
+    <br>
+    <h4>The weather for the next 5 days is:</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                {% for f in forecast %}
+                <th>{{arrow.get(f.get_reference_time('iso')).format('ddd, MMM D')}}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for f in forecast %}
+                <td>{{f.get_detailed_status()}}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+{% endblock %}

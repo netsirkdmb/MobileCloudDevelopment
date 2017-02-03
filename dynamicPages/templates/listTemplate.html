@@ -1,0 +1,66 @@
+{# Kristen Dhuse #}
+{# CS496 - Dynamic Pages Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{% set title = "School List" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+  {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <div>
+        <a href="/add"><button class="btn btn-success">Add a School</button></a>
+    </div>
+    <br>
+    <div class="table-responsive text-center">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center text-nowrap">Name</th>
+                    <th class="text-center text-nowrap">Type of School</th>
+                    <th class="text-center text-nowrap">Public or Private</th>
+                    <th class="text-center text-nowrap">Location (zip code)</th>
+                    <th class="text-center text-nowrap">Foreign Language(s) Taught</th>
+                    <th class="text-center text-nowrap">Rating (1-10)</th>
+                    <th class="text-center text-nowrap" colspan="2">Make Changes</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for s in schools %}
+                <tr>
+                    <td>{{s.schoolName}}</td>
+                    <td>{{s.typeOfSchool | join(', ')}}</td>
+                    <td>{{s.pubOrPri}}</td>
+                    <td>{{s.location}}</td>
+                    <td>{{s.foreignLanguagesTaught | join(', ')}}</td>
+                    <td>{{s.rating}}</td>
+                    <td><a href="/edit/{{s._id}}"><button class="btn btn-default">Edit School</button></a></td>
+                    <td><a href="/delete/{{s._id}}"><button class="btn btn-danger">Delete School</button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{# Kristen Dhuse #}
+{# CS496 - How To Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+
+{# This macro tells what to do with the nav_link variables below #}
+{% from "macros.html" import nav_link with context %}
+
+{# This is the base template that is extended by the other templates. #}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <title>{% block title %}{% endblock %} - How-To Guide</title>
+        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    </head>
+    <body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">How-To Guide</a>
+            </div><!-- /.navbar-header -->
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    {{ nav_link('installTNSwifty', 'Install TNSwiftyCheckboxGroup') }}
+                    {{ nav_link('getStarted', 'Get Started') }}
+                    {{ nav_link('checkboxViewController', 'Make Checkbox View Controller') }}
+                    {{ nav_link('makeStoryboard', 'Make Storyboard') }}
+                    {{ nav_link('navigationOutlets', 'Navigation and Outlets') }}
+                    {{ nav_link('moreNavigation', 'More Navigation') }}
+                    {{ nav_link('conclusion', 'Conclusion') }}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        {% block heading %}
+            <h1>{% block page %}{% endblock %}</h1>
+        {% endblock %}
+        <br>
+        {# This is the section of the template where the child templates insert the main part of their unique content. #}
+        {% block content %}{% endblock %}
+        <br>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    </body>
+</html>

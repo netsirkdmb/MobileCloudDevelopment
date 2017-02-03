@@ -1,0 +1,15 @@
+{# Kristen Dhuse #}
+{# CS496 - Hello Cloud Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+
+{# This macro is used to highlight the link in the navigation bar for the page that we are currently on. #}
+{# This macro is a little silly for this simple website, but as more links get added, it will be very useful to #}
+{# help simplify the other templates. #}
+{% macro nav_link(endpoint, name) %}
+{% if request.endpoint.endswith(endpoint) %}
+    <li class="active"><a href="{{ url_for(endpoint) }}">{{name}}</a></li>
+{% else %}
+    <li><a href="{{ url_for(endpoint) }}">{{name}}</a></li>
+{% endif %}
+{% endmacro %}

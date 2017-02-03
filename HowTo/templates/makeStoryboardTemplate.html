@@ -1,0 +1,93 @@
+{# Kristen Dhuse #}
+{# CS496 - How To Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{% set title = "Make Storyboard" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+    {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <p>
+        Open up the Main.storyboard file for your project to work on the storyboard.  Then, find the View Controller object by typing "view" in the search 
+        area of the Object Library, which is located at the bottom of the Utilities bar on the right-hand side of the window.  Drag the View Controller 
+        object into your storyboard and place it next to the form that you made for inputting data into your object.
+    </p>
+    <img src={{ url_for('static', filename = 'newViewController.jpg') }} alt="New View Controller" class="img-responsive center-image">
+    <br>
+    <p>
+        Now, drag a Container View object out of the Object Library and into the view controller that you just added.  Your view controller will now 
+        look like the picture below.  Remove the attached view controller that I have circled in red, which was automatically created when you added 
+        the container view.
+    </p>
+    <img src={{ url_for('static', filename = 'deleteContainerViewController.jpg') }} alt="Delete Container View Controller" class="img-responsive center-image">
+    <br>
+    <p>        
+        Click the view controller that you added at the beginning of this section.  If it is easier, you can do this by finding and clicking it in the 
+        document outline bar that is on the left side of the storyboard.  Now, in the "Editor" menu, find "Embed In"->"Navigation Controller".  This will add 
+        a navigation controller scene to the left of your view controller with an arrow pointing to your view controller and a grey bar at the top of your 
+        view controller.
+    </p>
+    <img src={{ url_for('static', filename = 'navigationController.jpg') }} alt="Navigation Controller" class="img-responsive center-image">
+    <br>
+    <p>
+        Next, make the container view object the size of the area that you want to use to display the checkboxes and add any constraints that you want.  
+        Also, add a Bar Button Item to the right side of the grey bar that was added when you embeded the view in the navigation controller.  In the 
+        Attributes Inspector (in the Utilities bar), change the System Item dropdown to "Done".  With the view controller clicked, change the Class dropdown 
+        in the Custom Class section of the Identity Inspector to the name that you chose for your view controller file in the "Make Checkbox View Controller" 
+        section of this guide.  In my case, I changed the class to "TypeOfSchoolViewController".
+    </p>
+    <img src={{ url_for('static', filename = 'typeOfSchoolViewController.jpg') }} alt="Type of School View Controller" class="img-responsive center-image">
+    <br>
+    <p>
+        Drag a Collection View Controller object from the Object Library into your scene to the right of your view controller.  You should remove the 
+        prototype UICollectionViewCell that was added by the Interface Builder.  I have circled it in red below.
+    </p>
+    <img src={{ url_for('static', filename = 'collectionViewDeleteCell.jpg') }} alt="Delete Collection View Cell" class="img-responsive center-image">
+    <br>
+    <p>
+        Now, change the Class dropdown in the Custom Class section of the Identity Inspector to "TNSwiftyCheckboxViewController".  Change the Module to 
+        "TNSwiftyCheckboxGroup".  Finally, CTRL-drag from the container view to the collection view controler and select the "embed" segue type.  Give 
+        the embed segue an identifier like "seg-checkboxes" by adding it to the "Identifier" field of the Attributes Inspector for the Embeded Segue.  The 
+        storyboard should look like the picture below.
+    </p>
+    <img src={{ url_for('static', filename = 'embedSegue.jpg') }} alt="Embed Segue" class="img-responsive center-image">
+    <br>
+    <p>
+        The final step for making the storyboard for now is to CTRL-drag from the button on the form that you want to use to navigate to the checkbox 
+        view to the navigation controller that is connected to the checkbox view.  In my case, I did a CTRL-drag from the "Choose Type(s) of School" button 
+        to the navigation controller.  Choose "Show" as the type of Action segue and give the segue an identifier like "showTypes" by adding it to the 
+        "Identifier" field of the Attributes Inspector for the segue.  A zoomed-out view of the current storyboard is shown below.
+    </p>
+    <img src={{ url_for('static', filename = 'storyboard.jpg') }} alt="Storyboard" class="img-responsive center-image">
+    <br>
+    <h4>Now you are ready add outlets and navigation to your view controller file!</h4>
+    <br>
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="{{ url_for('checkboxViewController') }}" class="btn btn-default" role="button">Previous</a>
+        <a href="{{ url_for('navigationOutlets') }}" class="btn btn-default" role="button">Next</a>
+    </div>
+    <br>
+{% endblock %}

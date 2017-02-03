@@ -1,0 +1,165 @@
+{# Kristen Dhuse #}
+{# CS496 - Dynamic Pages Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+    {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <div>
+        <h3 class="text-danger">{{error}}</h3>
+        <br>
+    </div>
+    <form class="form-horizontal" action="" method="POST" name="schoolForm">
+        <div class="form-group">
+            <label for="schoolName" class="col-sm-3 control-label">School Name</label>
+            <div class="col-sm-9">
+                <div>
+                    <label class="text-danger" style="display: none" id="nameAlert">Please enter the name of the school.</label>
+                </div>
+                <input type="text" class="form-control schoolName" id="schoolName" name="schoolName" placeholder="name"
+                    value="{{school.schoolName | default('')}}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Type of School</label>
+            <div class="col-sm-9">
+                <div>
+                    <label class="text-danger" style="display: none" id="checkboxAlert">Please check at least one box.</label>
+                </div>
+                {% for label in ["Daycare", "Preschool", "Elementary School (K-5)", "Middle School (6-8)", "High School (9-12)"] %}
+                    <div class="checkbox">
+                        <label>
+                            <input class="schoolType" type="checkbox" name="typeOfSchool" value="{{label}}"
+                                    {{'checked' if label in school.typeOfSchool | default('')}}>
+                            {{label}}
+                        </label>
+                    </div>
+                {% endfor %}
+             </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Public or Private School</label>
+            <div class="col-sm-9">
+                <div>
+                    <label class="text-danger" style="display: none" id="radioAlert">Please choose whether the school is a public or a private school.</label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" class="pubOrPri" name="pubOrPri" value="Public"
+                                    {{'checked' if school.pubOrPri == "Public" | default('')}} required>
+                        Public School
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" class="pubOrPri" name="pubOrPri" value="Private"
+                                    {{'checked' if school.pubOrPri == "Private" | default('')}} required>
+                        Private School
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location" class="col-sm-3 control-label">Location (zip code)</label>
+            <div class="col-sm-9">
+                <div>
+                    <label class="text-danger" style="display: none"  id="locationAlert">Please enter a valid 5-digit zip code.</label>
+                </div>
+                <input type="text" pattern="[0-9]{5}" class="form-control location" id="location" name="location" placeholder="zip"
+                    value="{{school.location | default('')}}" required aria-describedby="helpBlock">
+                <span id="helpBlock" class="help-block">Zip code must be 5 digits long.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Foreign Language(s) Taught</label>
+            <div class="col-sm-9">
+                <select multiple class="form-control" name="foreignLanguagesTaught" aria-describedby="helpBlock">
+                    {% for language in ["Spanish", "French", "German", "Japanese", "Mandarin"] %}
+                        <option {{'selected' if language in school.foreignLanguagesTaught | default('')}}>{{language}}</option>
+                    {% endfor %}
+                </select>
+                <span id="helpBlock" class="help-block">Hold down CTRL or Apple key to select multiple languages.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="rating" class="col-sm-3 control-label">Rating (1-10)</label>
+            <div class="col-sm-9">
+                <div>
+                    <label class="text-danger" style="display: none"  id="ratingAlert">Please enter an integer rating between 1 and 10 (inclusive).</label>
+                </div>
+                <input type="number" min="1" max="10" step="1" class="form-control rating" id="rating" name="rating"
+                    value="{{school.rating | default('')}}" required aria-describedby="helpBlock">
+                <span id="helpBlock" class="help-block">Note: The lowest rating is 1 and the highest rating is 10.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <a href="/"><button class="btn btn-danger" type="button">Cancel</button></a>
+                <button type="submit" class="btn btn-success" onclick="return validateForm();" >{{submit}}</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function validateForm() {
+            var valid = true;
+            var name = document.forms["schoolForm"]["schoolName"].value;
+            if (name == null || name == "") {
+                $("#nameAlert").show();
+                valid = false;
+            } else {
+                $("#nameAlert").hide();
+            }
+            if($(".schoolType:checked").length > 0) {
+                $("#checkboxAlert").hide();
+            } else {
+                $("#checkboxAlert").show();
+                valid = false;
+            }
+            if($(".pubOrPri:checked").length > 0) {
+                $("#radioAlert").hide();
+            } else {
+                $("#radioAlert").show();
+                valid = false;
+            }
+            var location = document.forms["schoolForm"]["location"].value;
+            if (location == null || location == "" || !location.match(/^[0-9]{5}$/)) {
+                $("#locationAlert").show();
+                valid = false;
+            } else {
+                $("#locationAlert").hide();
+            }
+            var rating = document.forms["schoolForm"]["rating"].value;
+            if (rating == null || rating == "" || rating > 10 || rating < 1 || !rating.match(/^([0-9]|10)$/)) {
+                $("#ratingAlert").show();
+                valid = false;
+            } else {
+                $("#ratingAlert").hide();
+            }
+            return valid;
+        }
+    </script>
+{% endblock %}

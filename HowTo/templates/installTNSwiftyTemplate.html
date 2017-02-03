@@ -1,0 +1,76 @@
+{# Kristen Dhuse #}
+{# CS496 - How To Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{% set title = "Install TNSwiftyCheckboxGroup" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+    {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <p>
+        The <a href="https://github.com/frederik-jacques/TNSwiftyCheckboxGroup/tree/swift_2">Github</a> page for TNSwiftyCheckboxGroup 
+        has more documentation than the previous link that I shared so I have spent most of my time looking at it to try to learn how 
+        to use the library.
+    </p>
+    <h2>Install CocoaPods</h2>
+    <p>
+        Reading the Github page, I learned that to install this library on my Xcode project, I needed to use 
+        CocoaPods.  I didn't know what CocoaPods are, so I did some internet searching again and came across this 
+        <a href="https://www.raywenderlich.com/97014/use-cocoapods-with-swift">website</a>.  I read the contents of this website from 
+        the beginning through the end of the "Getting Started" section, stopping at the "Ice Cream Shop, Inc." section.  The 
+        cocoapods.org website also has some nice <a href="https://guides.cocoapods.org/">guides</a> on getting started with and using 
+        CocoaPods, but I found the original how-to guide that I listed above to be more concise and all that I needed.
+    </p>
+    <h2>Updating Ruby</h2>
+    <p>        
+        While I was following the steps for installing CocoaPods outlined in the previously mentioned website, I got an error message on my 
+        Terminal program saying that I needed a newer version of Ruby.  This 
+        <a href="https://gorails.com/setup/osx/10.11-el-capitan">website</a> gives you everything you need to know to install the latest 
+        version of Ruby.  If you don't already have Homebrew, you need to install that first using the provided instructions.  Otherwise, 
+        go straight to the "Installing Ruby" section.  CocoaPods said that I needed Ruby version 2.2.2, but that version was not listed 
+        on the Ruby website so I went with the recommended option: 2.3.1.
+    </p>
+    <h2>Installing TNSwiftyCheckboxGroup</h2>
+    <p>
+        Now we are finally ready to install TNSwiftyCheckboxGroup on our Xcode project.  Simply add the following line to your Podfile in 
+        your project:
+    </p>
+    <pre>pod "TNSwiftyCheckboxGroup"</pre>
+    <p>
+        Then, using the Terminal program, navigate to your project directory and run <code>pod install</code> to install the dependencies 
+        so that you can use the library.  Note, that after installing the dependencies, you must always open the Xcode workspace file 
+        instead of the project file when building your project.  Because of this requirement, I just did all of my work from this point 
+        forward using the Xcode workspace.
+    </p>
+    <br>
+    <h4>Now you are ready to get started using the TNSwiftyCheckboxGroup in your project!</h4>
+    <br>
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="{{ url_for('background') }}" class="btn btn-default" role="button">Previous</a>
+        <a href="{{ url_for('getStarted') }}" class="btn btn-default" role="button">Next</a>
+    </div>
+    <br>
+{% endblock %}

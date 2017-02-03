@@ -1,0 +1,90 @@
+{# Kristen Dhuse #}
+{# CS496 - How To Assignment #}
+{# I used the link below to learn how to do templating with Jinja2 #}
+{# https://realpython.com/blog/python/primer-on-jinja-templating/ #}
+{# for help with Bootstrap tables #}
+{# http://getbootstrap.com/css/#tables #}
+
+{# This template is a child to the layout.html template #}
+{% extends "layout.html" %}
+
+{% set title = "More Navigation" %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the head that appears at the top of the window. #}
+{% block title %}{{title}}{% endblock %}
+
+{# This is the block for the text in the head that appears at the top of the window. Since it says "super" inside of #}
+{# it, the parent template will not be overwritten. #}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{# This is the block that gets the unique title of this link to insert into the text in the heading that appears above the content. #}
+{% block page %}{{title}}{% endblock %}
+
+{# This is the block for the text in the heading at the top of the content.  Since it says "super" inside of it, the #}
+{# parent template will not be overwritten. #}
+{% block heading %}
+    {{ super() }}
+{% endblock %}
+
+{# This block allows content unique to this template to be inserted into a specific location in the base template. #}
+{% block content %}
+    <p>
+        Now that we have taken care of navigation from the TypeOfSchoolViewController side of things, we need to address things from the school form's view controller.  
+        We will add two IBAction functions to the navigation section of this file (mine is called SchoolViewController.swift).  We will start out by manually creating 
+        a function called unwindToSchool, which will be called when we are leaving the checkbox view controller and going back to the school form view controller.  
+        The function signature is as shown below.
+    </p>
+    <pre>
+    @IBAction func unwindToSchool(sender: UIStoryboardSegue) {
+        
+    }</pre>
+    <p>
+        Inside this function, we need to check if the sourceViewController is a TypeOfSchoolViewController (our checkbox view controller).  If it is, then we will 
+        save the typeOfSchoolString that was passed from the sourceViewController (in the prepareForSegue function) in a variable.  If this string is empty, we will 
+        do nothing and the unwindToSchool function finishes.  This means that the user just exited the checkbox view controller without checking any boxes.  In this 
+        case, we want to keep the "Choose Type(s) of School" title on the button.  If this string is not empty, then the user checked some boxes and we need to set 
+        the title of the typeOfSchoolButton to the typeOfSchoolString.  This is accomplished in the code shown below.
+    </p>
+    <pre>
+    @IBAction func unwindToSchool(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? TypeOfSchoolViewController {
+            let typeOfSchoolString: String = sourceViewController.typeOfSchoolString
+            if(!typeOfSchoolString.isEmpty) {
+                typeOfSchoolButton.setTitle(typeOfSchoolString, forState: UIControlState.Normal)
+            }
+        }
+    }</pre>
+    <br>
+    <h4>More Storyboard Connections</h4>
+    <p>        
+        To make the remaining function that we need to make, we must first connect the typeOfSchoolButton to an IBAction function.  At the same time, we will also 
+        connect the unwindToSchool function that we just created to the "Done" button in the Type Of School View Controller.  To do this, we must switch to the 
+        Assistant Editor again.  Choose Main.storyboard from the list of files to show in the left half of the screen.  Click on the view controller for the school 
+        form in the Main.storyboard file and the SchoolViewController.swift file should automatically show up in the right half of the screen.  Now, CTRL-drag the 
+        "Choose Type(s) of School" button to the line above the unwindToSchool function.  Choose action in the dialog that pops up and give it a name.  This will be 
+        the name of your IBAction function.  My function is just named after the button so it is called typeOfSchoolButton since clicking it is what triggers this 
+        function.  The function will have just two lines.  The first line declares and initializes a variable "vc" as a TypeOfSchoolViewController.  The second line 
+        tells the app to show this view controller that has just been initialized and gives the sender as the typeOfSchoolButton.  Below, is the finished function.
+    </p>
+    <pre>
+    @IBAction func typeOfSchoolButton(sender: UIButton) {
+        let vc = TypeOfSchoolViewController()
+        navigationController?.showViewController(vc, sender: UIButton.self)
+    }</pre>
+    <p>
+        Switch back to the Standard Editor and click on the Type Of School View Controller in the Main.storyboard file.  To manually connect the "Done" button to 
+        the unwindToSchool function, you simply need to CTRL-drag from the "Done" button to the exit symbol at the top of the view controller and choose "unwindToSchool" 
+        in the list of Action Segues.  See the image below for what the exit symbol looks like.
+    </p>
+    <img src={{ url_for('static', filename = 'exitButton.jpg') }} alt="Exit Button" class="img-responsive center-image">
+    <br>
+    <h4>We are basically done.  In our conclusion, we will go over a few last things!</h4>
+    <br>
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="{{ url_for('navigationOutlets') }}" class="btn btn-default" role="button">Previous</a>
+        <a href="{{ url_for('conclusion') }}" class="btn btn-default" role="button">Next</a>
+    </div>
+    <br>
+{% endblock %}
