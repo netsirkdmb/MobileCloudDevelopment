@@ -1,0 +1,15 @@
+PODS:
+  - Reveal-iOS-SDK (1.6.2)
+  - TNSwiftyCheckboxGroup (1.0.1)
+
+DEPENDENCIES:
+  - Reveal-iOS-SDK
+  - TNSwiftyCheckboxGroup
+
+SPEC CHECKSUMS:
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
+  TNSwiftyCheckboxGroup: 0108231449ce7e6b98febdea7a8bcd85c145e2c7
+
+PODFILE CHECKSUM: fca66f52bfd27f2320d9e3e862d23b25c9ee82df
+
+COCOAPODS: 1.0.1

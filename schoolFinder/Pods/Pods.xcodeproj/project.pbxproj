@@ -1,0 +1,855 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02202F966F103EB89902FCAFCD606EB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		092FFE015F8432127BDFC930AC95B7BF /* TNSwiftyCheckboxCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92EE10BB1F0FB4522F6F54BB4BB2017 /* TNSwiftyCheckboxCustomLayout.swift */; };
+		16DF753A065F995AE7C37FDF2300E7CF /* TNSwiftyCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2FC005E13B0A927AFE318D0B9C74F2 /* TNSwiftyCheckboxView.swift */; };
+		1D9303EC885E70C21125B6A5A8C518CD /* Pods-schoolFinder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 293EC3B0367680E9B54DEA7CDD45AC19 /* Pods-schoolFinder-dummy.m */; };
+		25C4CDDD51F84F98208474EE79111569 /* Pods-schoolFinder-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 819761918B553A842B1FC84D92328AB5 /* Pods-schoolFinder-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2FE1D7D0F0F36539C399061A715FDCE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		3A155BE4E59E2E0B834C8A03B51DBC3D /* Dictionary_Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6839C3B2DA48A79418530320E9D0D06 /* Dictionary_Merge.swift */; };
+		45F0DB632E5764ABB3432844A1FC4D99 /* Pods-schoolFinderTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 649344068177CF5623DAC7E5932C07AA /* Pods-schoolFinderTests-dummy.m */; };
+		4DCB7A89F11C53238046755E3D808A46 /* TNSwiftyImageCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CCC2C5AAC18A786CC3AAF7ADD2155C /* TNSwiftyImageCheckboxView.swift */; };
+		5A6A868E3F34A51D96591D00D59848CD /* Pods-schoolFinderTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8017F38CC5F68ED7E49CFD3AC2260D /* Pods-schoolFinderTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CE5636C9A1EF4879CEC2E8ACF46771E /* TNSwiftyCircularCheckboxView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 5D5482A7192CDD6A46976215DEAC77B1 /* TNSwiftyCircularCheckboxView.xib */; };
+		5EB2ED5A8DF57EAAB7554FD32B1BC8E8 /* TNSwiftyCheckboxGroup-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4E2EC60D5CDCB56EE8945457450785 /* TNSwiftyCheckboxGroup-dummy.m */; };
+		6BCB79ADD11E29263746549E67F358B8 /* TNSwiftySquareCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913BF2A9FDE5D3C58519EF42CE0A627A /* TNSwiftySquareCheckboxView.swift */; };
+		7559350C4D1CBBD1310C567139F7076A /* TNSwiftyCheckboxGroup-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 53590A728745BF746B9239B001F274F6 /* TNSwiftyCheckboxGroup-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B7419E0CCBBACF74E7AA1947A4C0FA8 /* TNSwiftyCheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7D577144AB011F09A8E6F1ED923EA6 /* TNSwiftyCheckboxViewController.swift */; };
+		A51D201DD98179AF5CFF1E4FC619D167 /* TNSwiftySquareCheckboxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D4D47108BF53F4AB19D8C583ED7E3AB /* TNSwiftySquareCheckboxView.xib */; };
+		A670AADBD32F3A17CCCC53FCF6445738 /* TNSwiftyImageCheckboxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF8A95E0B7E03EA44C5913ED1D81DDA /* TNSwiftyImageCheckboxView.xib */; };
+		B09761087D0EF66F5DB0A6104A7696DF /* TNSwiftySquareCheckboxView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D47108BF53F4AB19D8C583ED7E3AB /* TNSwiftySquareCheckboxView.xib */; };
+		B352649499381125B7FEF6574CAA556E /* TNSwiftyCheckboxGroup.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3E36F085143791AFC2F05EE89A4D431 /* TNSwiftyCheckboxGroup.bundle */; };
+		D31BAB24F0F42273FB810A4F08C6180C /* TNSwiftyCircularCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C075809C6DFE16A977D5A4111BA74151 /* TNSwiftyCircularCheckboxView.swift */; };
+		D3D8FD0EB6E6D7A339F63DD656F0F136 /* TNSwiftyImageCheckboxView.xib in Sources */ = {isa = PBXBuildFile; fileRef = AEF8A95E0B7E03EA44C5913ED1D81DDA /* TNSwiftyImageCheckboxView.xib */; };
+		DF0E41825D77D122EF808E39C963F79C /* TNSwiftyCircularCheckboxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5482A7192CDD6A46976215DEAC77B1 /* TNSwiftyCircularCheckboxView.xib */; };
+		E4ED5ED6451FFF43E744BBAEC0A0B03B /* TNSwiftyCheckboxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A88D27EBCC592521A9AD5672F99F2F /* TNSwiftyCheckboxModel.swift */; };
+		EEA0CEF7713672ECB01B8F763F2D4A76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DCCD484495DFD0A61F9838A949273A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF8E367BE8C792120C151EEBFD9FCF25;
+			remoteInfo = TNSwiftyCheckboxGroup;
+		};
+		EB74844A4F2CDC0F062A4E4E25985EA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D85684070CE755969585444707FBF372;
+			remoteInfo = "TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02E55611BF8A67EB3070C35C921AEBD0 /* Pods-schoolFinderTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-schoolFinderTests.modulemap"; sourceTree = "<group>"; };
+		05768341C31FD0351904D203817B4017 /* Pods-schoolFinder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-schoolFinder.modulemap"; sourceTree = "<group>"; };
+		0B2FC005E13B0A927AFE318D0B9C74F2 /* TNSwiftyCheckboxView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TNSwiftyCheckboxView.swift; path = Pod/Classes/TNSwiftyCheckboxView.swift; sourceTree = "<group>"; };
+		1F891C4578103B1D378DE2FC9853B32B /* Pods_schoolFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_schoolFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2247C8E610B6AB25EF0F33536E7B8DB5 /* Pods-schoolFinderTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-schoolFinderTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		293EC3B0367680E9B54DEA7CDD45AC19 /* Pods-schoolFinder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-schoolFinder-dummy.m"; sourceTree = "<group>"; };
+		3255FD8BCC92D7A1A3EAF680A7590A51 /* Pods_schoolFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_schoolFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33CCC2C5AAC18A786CC3AAF7ADD2155C /* TNSwiftyImageCheckboxView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TNSwiftyImageCheckboxView.swift; path = Pod/Classes/TNSwiftyImageCheckboxView.swift; sourceTree = "<group>"; };
+		368B58758BF96C8CCAC42F5B21786FEB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3907F244D95873249A55E7871E4FB030 /* Pods-schoolFinderTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-schoolFinderTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3B3E5A17B5AAF88D93A67857946F9BA0 /* Pods-schoolFinder-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-schoolFinder-resources.sh"; sourceTree = "<group>"; };
+		4072452DCDED041A588A2140A5F3477A /* Pods-schoolFinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-schoolFinderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		437FFEEEE5F531C918A374F232FD403C /* Pods-schoolFinder-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-schoolFinder-frameworks.sh"; sourceTree = "<group>"; };
+		47A07F8D7EFE2A16D9A5C9E3359B13B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52D4E73BDE6882D1DF5572F4DF496709 /* TNSwiftyCheckboxGroup.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TNSwiftyCheckboxGroup.xcconfig; sourceTree = "<group>"; };
+		53590A728745BF746B9239B001F274F6 /* TNSwiftyCheckboxGroup-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TNSwiftyCheckboxGroup-umbrella.h"; sourceTree = "<group>"; };
+		53A88D27EBCC592521A9AD5672F99F2F /* TNSwiftyCheckboxModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TNSwiftyCheckboxModel.swift; path = Pod/Classes/TNSwiftyCheckboxModel.swift; sourceTree = "<group>"; };
+		5D5482A7192CDD6A46976215DEAC77B1 /* TNSwiftyCircularCheckboxView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TNSwiftyCircularCheckboxView.xib; path = Pod/Classes/TNSwiftyCircularCheckboxView.xib; sourceTree = "<group>"; };
+		62C12F81ED43087EC3BDD786AD522CCC /* TNSwiftyCheckboxGroup-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TNSwiftyCheckboxGroup-prefix.pch"; sourceTree = "<group>"; };
+		649344068177CF5623DAC7E5932C07AA /* Pods-schoolFinderTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-schoolFinderTests-dummy.m"; sourceTree = "<group>"; };
+		727BE30826308A697EB390B8DE032314 /* TNSwiftyCheckboxGroup.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TNSwiftyCheckboxGroup.modulemap; sourceTree = "<group>"; };
+		73AA948865E7E17ED31F98F947DC13A5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		819761918B553A842B1FC84D92328AB5 /* Pods-schoolFinder-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-schoolFinder-umbrella.h"; sourceTree = "<group>"; };
+		8D4D47108BF53F4AB19D8C583ED7E3AB /* TNSwiftySquareCheckboxView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TNSwiftySquareCheckboxView.xib; path = Pod/Classes/TNSwiftySquareCheckboxView.xib; sourceTree = "<group>"; };
+		913BF2A9FDE5D3C58519EF42CE0A627A /* TNSwiftySquareCheckboxView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TNSwiftySquareCheckboxView.swift; path = Pod/Classes/TNSwiftySquareCheckboxView.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A848B8749E60E37313DEA48FDAB537D7 /* TNSwiftyCheckboxGroup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TNSwiftyCheckboxGroup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACFA0AA746B89BFAF522A4A399352F95 /* Pods-schoolFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-schoolFinder.debug.xcconfig"; sourceTree = "<group>"; };
+		AEF8A95E0B7E03EA44C5913ED1D81DDA /* TNSwiftyImageCheckboxView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TNSwiftyImageCheckboxView.xib; path = Pod/Classes/TNSwiftyImageCheckboxView.xib; sourceTree = "<group>"; };
+		B10824789F1BBD43DEEBF383190D4038 /* Pods-schoolFinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-schoolFinderTests.release.xcconfig"; sourceTree = "<group>"; };
+		B23C309A859AD4DFF8A75583423D8B13 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "Reveal-Framework-iOS-1.6.2/Reveal.framework"; sourceTree = "<group>"; };
+		B61E0E1EC4A854B9571EEDABFEC39388 /* ResourceBundle-TNSwiftyCheckboxGroup-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TNSwiftyCheckboxGroup-Info.plist"; sourceTree = "<group>"; };
+		C075809C6DFE16A977D5A4111BA74151 /* TNSwiftyCircularCheckboxView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TNSwiftyCircularCheckboxView.swift; path = Pod/Classes/TNSwiftyCircularCheckboxView.swift; sourceTree = "<group>"; };
+		C3E36F085143791AFC2F05EE89A4D431 /* TNSwiftyCheckboxGroup.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TNSwiftyCheckboxGroup.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C55A43940B6E1BAC7B16E4DBBFA54A4A /* Pods-schoolFinderTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-schoolFinderTests-frameworks.sh"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D6839C3B2DA48A79418530320E9D0D06 /* Dictionary_Merge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dictionary_Merge.swift; path = Pod/Classes/Dictionary_Merge.swift; sourceTree = "<group>"; };
+		DCE17F5A1C22A3E1443C61BF8C200D56 /* Pods-schoolFinder-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-schoolFinder-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E47153BEBD9EA6E036C9A839A8168014 /* Pods-schoolFinder-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-schoolFinder-acknowledgements.plist"; sourceTree = "<group>"; };
+		ED044B009083AC530E055F0E0245CC07 /* Pods-schoolFinderTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-schoolFinderTests-resources.sh"; sourceTree = "<group>"; };
+		ED66F6EC335195883BED095D90B833B9 /* Pods-schoolFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-schoolFinder.release.xcconfig"; sourceTree = "<group>"; };
+		EE7D577144AB011F09A8E6F1ED923EA6 /* TNSwiftyCheckboxViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TNSwiftyCheckboxViewController.swift; path = Pod/Classes/TNSwiftyCheckboxViewController.swift; sourceTree = "<group>"; };
+		F92EE10BB1F0FB4522F6F54BB4BB2017 /* TNSwiftyCheckboxCustomLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TNSwiftyCheckboxCustomLayout.swift; path = Pod/Classes/TNSwiftyCheckboxCustomLayout.swift; sourceTree = "<group>"; };
+		FF4E2EC60D5CDCB56EE8945457450785 /* TNSwiftyCheckboxGroup-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TNSwiftyCheckboxGroup-dummy.m"; sourceTree = "<group>"; };
+		FF8017F38CC5F68ED7E49CFD3AC2260D /* Pods-schoolFinderTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-schoolFinderTests-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2ACF318DC8DD72D7B1A64DB33DE2CACD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4406A6532744EFE8047011A6160DA47D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA0CEF7713672ECB01B8F763F2D4A76 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D6E07242676A4A79A3087B52D83DE05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FE1D7D0F0F36539C399061A715FDCE7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F2F769D44B4F3F336EBFA0A93BCD5AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02202F966F103EB89902FCAFCD606EB8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0FD05E6753AEB9BCA42260326FAD260E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3277AB58708853DA959873C69A4356C1 /* Reveal-iOS-SDK */,
+				B10B481F7A896E976486B5D04EC05636 /* TNSwiftyCheckboxGroup */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3277AB58708853DA959873C69A4356C1 /* Reveal-iOS-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				4887AC9EA376DF636BFD0EEFD9AC9D68 /* Frameworks */,
+			);
+			path = "Reveal-iOS-SDK";
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4887AC9EA376DF636BFD0EEFD9AC9D68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B23C309A859AD4DFF8A75583423D8B13 /* Reveal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A91D345A979982E7F9E7C70C2E464E9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				73AA948865E7E17ED31F98F947DC13A5 /* Info.plist */,
+				B61E0E1EC4A854B9571EEDABFEC39388 /* ResourceBundle-TNSwiftyCheckboxGroup-Info.plist */,
+				727BE30826308A697EB390B8DE032314 /* TNSwiftyCheckboxGroup.modulemap */,
+				52D4E73BDE6882D1DF5572F4DF496709 /* TNSwiftyCheckboxGroup.xcconfig */,
+				FF4E2EC60D5CDCB56EE8945457450785 /* TNSwiftyCheckboxGroup-dummy.m */,
+				62C12F81ED43087EC3BDD786AD522CCC /* TNSwiftyCheckboxGroup-prefix.pch */,
+				53590A728745BF746B9239B001F274F6 /* TNSwiftyCheckboxGroup-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TNSwiftyCheckboxGroup";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				0FD05E6753AEB9BCA42260326FAD260E /* Pods */,
+				E5DE8BFC001CE34508E04B72229AC46C /* Products */,
+				CE4D19B2F107F811250318AEA594D55D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A4BC86BFF475D6ED6AE13A48FE9CB8F4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A512AA6A9D23A5D22AE7F6C3A3A900DC /* Pods-schoolFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				47A07F8D7EFE2A16D9A5C9E3359B13B0 /* Info.plist */,
+				02E55611BF8A67EB3070C35C921AEBD0 /* Pods-schoolFinderTests.modulemap */,
+				2247C8E610B6AB25EF0F33536E7B8DB5 /* Pods-schoolFinderTests-acknowledgements.markdown */,
+				3907F244D95873249A55E7871E4FB030 /* Pods-schoolFinderTests-acknowledgements.plist */,
+				649344068177CF5623DAC7E5932C07AA /* Pods-schoolFinderTests-dummy.m */,
+				C55A43940B6E1BAC7B16E4DBBFA54A4A /* Pods-schoolFinderTests-frameworks.sh */,
+				ED044B009083AC530E055F0E0245CC07 /* Pods-schoolFinderTests-resources.sh */,
+				FF8017F38CC5F68ED7E49CFD3AC2260D /* Pods-schoolFinderTests-umbrella.h */,
+				4072452DCDED041A588A2140A5F3477A /* Pods-schoolFinderTests.debug.xcconfig */,
+				B10824789F1BBD43DEEBF383190D4038 /* Pods-schoolFinderTests.release.xcconfig */,
+			);
+			name = "Pods-schoolFinderTests";
+			path = "Target Support Files/Pods-schoolFinderTests";
+			sourceTree = "<group>";
+		};
+		A83B7C9DCB1410F0F174041CA2601371 /* Pods-schoolFinder */ = {
+			isa = PBXGroup;
+			children = (
+				368B58758BF96C8CCAC42F5B21786FEB /* Info.plist */,
+				05768341C31FD0351904D203817B4017 /* Pods-schoolFinder.modulemap */,
+				DCE17F5A1C22A3E1443C61BF8C200D56 /* Pods-schoolFinder-acknowledgements.markdown */,
+				E47153BEBD9EA6E036C9A839A8168014 /* Pods-schoolFinder-acknowledgements.plist */,
+				293EC3B0367680E9B54DEA7CDD45AC19 /* Pods-schoolFinder-dummy.m */,
+				437FFEEEE5F531C918A374F232FD403C /* Pods-schoolFinder-frameworks.sh */,
+				3B3E5A17B5AAF88D93A67857946F9BA0 /* Pods-schoolFinder-resources.sh */,
+				819761918B553A842B1FC84D92328AB5 /* Pods-schoolFinder-umbrella.h */,
+				ACFA0AA746B89BFAF522A4A399352F95 /* Pods-schoolFinder.debug.xcconfig */,
+				ED66F6EC335195883BED095D90B833B9 /* Pods-schoolFinder.release.xcconfig */,
+			);
+			name = "Pods-schoolFinder";
+			path = "Target Support Files/Pods-schoolFinder";
+			sourceTree = "<group>";
+		};
+		B10B481F7A896E976486B5D04EC05636 /* TNSwiftyCheckboxGroup */ = {
+			isa = PBXGroup;
+			children = (
+				D6839C3B2DA48A79418530320E9D0D06 /* Dictionary_Merge.swift */,
+				F92EE10BB1F0FB4522F6F54BB4BB2017 /* TNSwiftyCheckboxCustomLayout.swift */,
+				53A88D27EBCC592521A9AD5672F99F2F /* TNSwiftyCheckboxModel.swift */,
+				0B2FC005E13B0A927AFE318D0B9C74F2 /* TNSwiftyCheckboxView.swift */,
+				EE7D577144AB011F09A8E6F1ED923EA6 /* TNSwiftyCheckboxViewController.swift */,
+				C075809C6DFE16A977D5A4111BA74151 /* TNSwiftyCircularCheckboxView.swift */,
+				5D5482A7192CDD6A46976215DEAC77B1 /* TNSwiftyCircularCheckboxView.xib */,
+				33CCC2C5AAC18A786CC3AAF7ADD2155C /* TNSwiftyImageCheckboxView.swift */,
+				AEF8A95E0B7E03EA44C5913ED1D81DDA /* TNSwiftyImageCheckboxView.xib */,
+				913BF2A9FDE5D3C58519EF42CE0A627A /* TNSwiftySquareCheckboxView.swift */,
+				8D4D47108BF53F4AB19D8C583ED7E3AB /* TNSwiftySquareCheckboxView.xib */,
+				A4BC86BFF475D6ED6AE13A48FE9CB8F4 /* Resources */,
+				6A91D345A979982E7F9E7C70C2E464E9 /* Support Files */,
+			);
+			path = TNSwiftyCheckboxGroup;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE4D19B2F107F811250318AEA594D55D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A83B7C9DCB1410F0F174041CA2601371 /* Pods-schoolFinder */,
+				A512AA6A9D23A5D22AE7F6C3A3A900DC /* Pods-schoolFinderTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E5DE8BFC001CE34508E04B72229AC46C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F891C4578103B1D378DE2FC9853B32B /* Pods_schoolFinder.framework */,
+				3255FD8BCC92D7A1A3EAF680A7590A51 /* Pods_schoolFinderTests.framework */,
+				C3E36F085143791AFC2F05EE89A4D431 /* TNSwiftyCheckboxGroup.bundle */,
+				A848B8749E60E37313DEA48FDAB537D7 /* TNSwiftyCheckboxGroup.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		172807A9C407CB3C814E5D1FB6E181FA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25C4CDDD51F84F98208474EE79111569 /* Pods-schoolFinder-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A824487EF9480A9543987815BAB5732 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A6A868E3F34A51D96591D00D59848CD /* Pods-schoolFinderTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E872490B5406EA1B6266CE2501B7381 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7559350C4D1CBBD1310C567139F7076A /* TNSwiftyCheckboxGroup-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		25A836B7420D0C82A64514F6AD01670F /* Pods-schoolFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF230CDBD5064E9B242BBD347945616C /* Build configuration list for PBXNativeTarget "Pods-schoolFinderTests" */;
+			buildPhases = (
+				C9773E8B1479A9E18D4A08CC314C887E /* Sources */,
+				9F2F769D44B4F3F336EBFA0A93BCD5AC /* Frameworks */,
+				2A824487EF9480A9543987815BAB5732 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-schoolFinderTests";
+			productName = "Pods-schoolFinderTests";
+			productReference = 3255FD8BCC92D7A1A3EAF680A7590A51 /* Pods_schoolFinderTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		66D8D55023339F046B15A518607F48F8 /* Pods-schoolFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 986B1C25C6B9E4AC461A711A9B2C206D /* Build configuration list for PBXNativeTarget "Pods-schoolFinder" */;
+			buildPhases = (
+				B14541BEB18DE0BEC3630E099D70699C /* Sources */,
+				4406A6532744EFE8047011A6160DA47D /* Frameworks */,
+				172807A9C407CB3C814E5D1FB6E181FA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDE28F072C81C9857389CB2895C0C910 /* PBXTargetDependency */,
+			);
+			name = "Pods-schoolFinder";
+			productName = "Pods-schoolFinder";
+			productReference = 1F891C4578103B1D378DE2FC9853B32B /* Pods_schoolFinder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D85684070CE755969585444707FBF372 /* TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74D9C76A1A53EC168E0F6273C0AEA6DC /* Build configuration list for PBXNativeTarget "TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup" */;
+			buildPhases = (
+				83D5DC3CFBE6795FB946CBBDE19F6C2A /* Sources */,
+				2ACF318DC8DD72D7B1A64DB33DE2CACD /* Frameworks */,
+				1CEB671E89CAF8321CFFFB9EE48B51F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup";
+			productName = "TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup";
+			productReference = C3E36F085143791AFC2F05EE89A4D431 /* TNSwiftyCheckboxGroup.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		DF8E367BE8C792120C151EEBFD9FCF25 /* TNSwiftyCheckboxGroup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 658E3AA69BCB9A2B2534F949CE8E5738 /* Build configuration list for PBXNativeTarget "TNSwiftyCheckboxGroup" */;
+			buildPhases = (
+				571F124A2796F1C594289F036534FCD3 /* Sources */,
+				7D6E07242676A4A79A3087B52D83DE05 /* Frameworks */,
+				1CC4F9A103A513A6228FD0F96C77F383 /* Resources */,
+				6E872490B5406EA1B6266CE2501B7381 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71C7BE1FBE643A90F3F0D1B8B42478DF /* PBXTargetDependency */,
+			);
+			name = TNSwiftyCheckboxGroup;
+			productName = TNSwiftyCheckboxGroup;
+			productReference = A848B8749E60E37313DEA48FDAB537D7 /* TNSwiftyCheckboxGroup.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = E5DE8BFC001CE34508E04B72229AC46C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66D8D55023339F046B15A518607F48F8 /* Pods-schoolFinder */,
+				25A836B7420D0C82A64514F6AD01670F /* Pods-schoolFinderTests */,
+				DF8E367BE8C792120C151EEBFD9FCF25 /* TNSwiftyCheckboxGroup */,
+				D85684070CE755969585444707FBF372 /* TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CC4F9A103A513A6228FD0F96C77F383 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B352649499381125B7FEF6574CAA556E /* TNSwiftyCheckboxGroup.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CEB671E89CAF8321CFFFB9EE48B51F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF0E41825D77D122EF808E39C963F79C /* TNSwiftyCircularCheckboxView.xib in Resources */,
+				A670AADBD32F3A17CCCC53FCF6445738 /* TNSwiftyImageCheckboxView.xib in Resources */,
+				A51D201DD98179AF5CFF1E4FC619D167 /* TNSwiftySquareCheckboxView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		571F124A2796F1C594289F036534FCD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A155BE4E59E2E0B834C8A03B51DBC3D /* Dictionary_Merge.swift in Sources */,
+				092FFE015F8432127BDFC930AC95B7BF /* TNSwiftyCheckboxCustomLayout.swift in Sources */,
+				5EB2ED5A8DF57EAAB7554FD32B1BC8E8 /* TNSwiftyCheckboxGroup-dummy.m in Sources */,
+				E4ED5ED6451FFF43E744BBAEC0A0B03B /* TNSwiftyCheckboxModel.swift in Sources */,
+				16DF753A065F995AE7C37FDF2300E7CF /* TNSwiftyCheckboxView.swift in Sources */,
+				8B7419E0CCBBACF74E7AA1947A4C0FA8 /* TNSwiftyCheckboxViewController.swift in Sources */,
+				D31BAB24F0F42273FB810A4F08C6180C /* TNSwiftyCircularCheckboxView.swift in Sources */,
+				5CE5636C9A1EF4879CEC2E8ACF46771E /* TNSwiftyCircularCheckboxView.xib in Sources */,
+				4DCB7A89F11C53238046755E3D808A46 /* TNSwiftyImageCheckboxView.swift in Sources */,
+				D3D8FD0EB6E6D7A339F63DD656F0F136 /* TNSwiftyImageCheckboxView.xib in Sources */,
+				6BCB79ADD11E29263746549E67F358B8 /* TNSwiftySquareCheckboxView.swift in Sources */,
+				B09761087D0EF66F5DB0A6104A7696DF /* TNSwiftySquareCheckboxView.xib in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83D5DC3CFBE6795FB946CBBDE19F6C2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B14541BEB18DE0BEC3630E099D70699C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D9303EC885E70C21125B6A5A8C518CD /* Pods-schoolFinder-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9773E8B1479A9E18D4A08CC314C887E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45F0DB632E5764ABB3432844A1FC4D99 /* Pods-schoolFinderTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71C7BE1FBE643A90F3F0D1B8B42478DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup";
+			target = D85684070CE755969585444707FBF372 /* TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup */;
+			targetProxy = EB74844A4F2CDC0F062A4E4E25985EA5 /* PBXContainerItemProxy */;
+		};
+		FDE28F072C81C9857389CB2895C0C910 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TNSwiftyCheckboxGroup;
+			target = DF8E367BE8C792120C151EEBFD9FCF25 /* TNSwiftyCheckboxGroup */;
+			targetProxy = 2DCCD484495DFD0A61F9838A949273A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		034014829C1E4434983CF3A690C12017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		0BD627485F39B34B7A3DB6FC0E7E4F6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4072452DCDED041A588A2140A5F3477A /* Pods-schoolFinderTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-schoolFinderTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-schoolFinderTests/Pods-schoolFinderTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_schoolFinderTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0D8ABFF885BA3AFA17D45A3F89DD4E26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52D4E73BDE6882D1DF5572F4DF496709 /* TNSwiftyCheckboxGroup.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TNSwiftyCheckboxGroup/TNSwiftyCheckboxGroup-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TNSwiftyCheckboxGroup/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/TNSwiftyCheckboxGroup/TNSwiftyCheckboxGroup.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = TNSwiftyCheckboxGroup;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		10D94568085CD051FB02D5F9B609640B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52D4E73BDE6882D1DF5572F4DF496709 /* TNSwiftyCheckboxGroup.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/TNSwiftyCheckboxGroup";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/TNSwiftyCheckboxGroup/ResourceBundle-TNSwiftyCheckboxGroup-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = TNSwiftyCheckboxGroup;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		418CC0CBB8C8A5E37E16DC6F77E0F3AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B10824789F1BBD43DEEBF383190D4038 /* Pods-schoolFinderTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-schoolFinderTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-schoolFinderTests/Pods-schoolFinderTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_schoolFinderTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6B900F068038CA511BBFD5853EF21F0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52D4E73BDE6882D1DF5572F4DF496709 /* TNSwiftyCheckboxGroup.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TNSwiftyCheckboxGroup/TNSwiftyCheckboxGroup-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TNSwiftyCheckboxGroup/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/TNSwiftyCheckboxGroup/TNSwiftyCheckboxGroup.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = TNSwiftyCheckboxGroup;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B98BAFCABD618D8D57A595880B52A9C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACFA0AA746B89BFAF522A4A399352F95 /* Pods-schoolFinder.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-schoolFinder/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-schoolFinder/Pods-schoolFinder.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_schoolFinder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BA392E66E7AD3CB3A65B052510512580 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED66F6EC335195883BED095D90B833B9 /* Pods-schoolFinder.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-schoolFinder/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-schoolFinder/Pods-schoolFinder.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_schoolFinder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C7E474A03CAE21F1CB6046E7344C59BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D76E3CD990EA0FF31866720593AB36D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52D4E73BDE6882D1DF5572F4DF496709 /* TNSwiftyCheckboxGroup.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/TNSwiftyCheckboxGroup";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/TNSwiftyCheckboxGroup/ResourceBundle-TNSwiftyCheckboxGroup-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = TNSwiftyCheckboxGroup;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034014829C1E4434983CF3A690C12017 /* Debug */,
+				C7E474A03CAE21F1CB6046E7344C59BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		658E3AA69BCB9A2B2534F949CE8E5738 /* Build configuration list for PBXNativeTarget "TNSwiftyCheckboxGroup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B900F068038CA511BBFD5853EF21F0D /* Debug */,
+				0D8ABFF885BA3AFA17D45A3F89DD4E26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74D9C76A1A53EC168E0F6273C0AEA6DC /* Build configuration list for PBXNativeTarget "TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10D94568085CD051FB02D5F9B609640B /* Debug */,
+				D76E3CD990EA0FF31866720593AB36D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		986B1C25C6B9E4AC461A711A9B2C206D /* Build configuration list for PBXNativeTarget "Pods-schoolFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B98BAFCABD618D8D57A595880B52A9C1 /* Debug */,
+				BA392E66E7AD3CB3A65B052510512580 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF230CDBD5064E9B242BBD347945616C /* Build configuration list for PBXNativeTarget "Pods-schoolFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BD627485F39B34B7A3DB6FC0E7E4F6A /* Debug */,
+				418CC0CBB8C8A5E37E16DC6F77E0F3AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

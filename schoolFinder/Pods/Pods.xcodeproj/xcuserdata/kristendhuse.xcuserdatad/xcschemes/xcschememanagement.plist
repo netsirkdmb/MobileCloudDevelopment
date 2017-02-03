@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-schoolFinder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-schoolFinderTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TNSwiftyCheckboxGroup-TNSwiftyCheckboxGroup.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TNSwiftyCheckboxGroup.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>25A836B7420D0C82A64514F6AD01670F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>66D8D55023339F046B15A518607F48F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D85684070CE755969585444707FBF372</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF8E367BE8C792120C151EEBFD9FCF25</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
